@@ -7,7 +7,7 @@ interface BaseCard {
   quant: Quant;
 }
 
-interface CostumeCard extends BaseCard{
+interface CostumeCard extends BaseCard {
   text: string;
   deck: 'COSTUME';
   template: 'SETTING' | 'DRESS_IN' | 'DRESS_AS';
@@ -71,53 +71,56 @@ export const AestheticPairDeck: AestheticsCard[] = [
 ];
 
 export const ConnectionDeck: ConnectionCard[] = [
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'an unexpected mission'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'a common responsibility'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'a common enemy'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'a shared performance'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'biological symbiosis'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'a shared love'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'an accidental life saving'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'a hope for the future'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'an old mentorship'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'respect for each other\'s ethics'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'respect for each other\'s skills'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'doubt of your own factions'},
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text:  'shared vital resources'},
-]
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'an unexpected mission' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a common responsibility' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a common enemy' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a shared performance' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'biological symbiosis' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a shared love' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'an accidental life saving' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a hope for the future' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'an old mentorship' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: "respect for each other's ethics" },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: "respect for each other's skills" },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'doubt of your own factions' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'shared vital resources' },
+];
 
-export const CostumeDeck: CostumeCard[] =[
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'modern formal' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'modern informal' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'medieval fantasy' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'renaissance' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'space opera' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'steampunk' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'cyberpunk' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'post-apcalyptic' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'high fashion' },
-{ quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'underwater' },
-{ quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'uniforms' },
-{ quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'floral designs' },
-{ quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'anthropomorphic animals' },
-{ quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'household objects' },
-{ quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'pilots' },
-{ quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'superheroes' },
-{ quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'sailors' },
-]
+export const CostumeDeck: CostumeCard[] = [
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'modern formal' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'modern informal' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'medieval fantasy' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'renaissance' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'space opera' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'steampunk' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'cyberpunk' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'post-apcalyptic' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'high fashion' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'underwater' },
+  { quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'uniforms' },
+  { quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'floral designs' },
+  { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'anthropomorphic animals' },
+  { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'household objects' },
+  { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'pilots' },
+  { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'superheroes' },
+  { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'sailors' },
+];
 
-
-const getCardText = (card: Card, index: number): string => { // index: number | NULL ???
+const getCardText = (card: Card, index?: number): string => {
+  // index: number | NULL ???
   switch (card.quant) {
     case 'SINGLE':
       return card.text;
     case 'DOUBLE':
+      if (index == undefined) {
+        return `${card.text[0]} or ${card.text[1]}`;
+      }
       return card.text[index];
   }
 };
 
-export const printCard = (card: Card, index: number): string => {
+export const printCard = (card: Card, index?: number): string => {
   return getFormatString(card).replace('{}', getCardText(card, index));
 };
 
-export const Decks={AestheticPairDeck,ConnectionDeck,CostumeDeck}
+export const Decks = { AestheticPairDeck, ConnectionDeck, CostumeDeck };
