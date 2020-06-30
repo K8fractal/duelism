@@ -30,8 +30,6 @@ interface AestheticsCard extends BaseCard {
 
 export type Card = ConnectionCard | AestheticsCard | CostumeCard;
 
-const card: Card = null;
-
 const getFormatString = (card: Card) => {
   switch (card.template) {
     case 'STYLE':
