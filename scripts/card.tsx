@@ -6,5 +6,5 @@ interface Props {
 }
 
 export const CardFace = ({ card }: Props): JSX.Element => {
-  return <div>{printCard(card)}</div>;
+  return <div className="box">{printCard(card)}</div>;
 };

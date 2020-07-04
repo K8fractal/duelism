@@ -1,4 +1,6 @@
-type Template = 'CONNECTED_BY' | 'STYLE' | 'THEME' | 'SETTING' | 'DRESS_IN' | 'DRESS_AS';
+import { lazy } from 'react';
+
+type Template = 'MANNER' | 'CONNECTED_BY' | 'STYLE' | 'THEME' | 'SETTING' | 'DRESS_IN' | 'DRESS_AS' | 'REPRESENT';
 type Quant = 'SINGLE' | 'DOUBLE';
 
 interface BaseCard {
@@ -28,24 +30,21 @@ interface AestheticsCard extends BaseCard {
   quant: 'DOUBLE';
 }
 
-export type Card = ConnectionCard | AestheticsCard | CostumeCard;
+interface IdealsCard extends BaseCard {
+  text: [string, string];
+  deck: 'IDEALS';
+  template: 'REPRESENT';
+  quant: 'DOUBLE';
+}
 
-const getFormatString = (card: Card) => {
-  switch (card.template) {
-    case 'STYLE':
-      return 'in a {} style';
-    case 'THEME':
-      return 'with a theme of {}';
-    case 'CONNECTED_BY':
-      return 'You are connected by {}.';
-    case 'SETTING':
-      return 'Dress for a {} setting.';
-    case 'DRESS_AS':
-      return 'Dress as {}';
-    case 'DRESS_IN':
-      return 'Dress in {}';
-  }
-};
+interface MannersCard extends BaseCard {
+  text: [string, string];
+  deck: 'MANNERS';
+  template: 'MANNER';
+  quant: 'DOUBLE';
+}
+
+export type Card = ConnectionCard | AestheticsCard | CostumeCard | IdealsCard | MannersCard;
 
 export const AestheticPairDeck: AestheticsCard[] = [
   { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['dark', 'light'] },
@@ -103,6 +102,70 @@ export const CostumeDeck: CostumeCard[] = [
   { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'superheroes' },
   { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'sailors' },
 ];
+
+export const IdealPairDeck: IdealsCard[] = [
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['good', 'evil'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['order', 'chaos'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['freedom', 'loyalty'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['caution', 'action'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['heritage', 'progress'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['spirit', 'physicality'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['authority', 'rebellion'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['knowledge', 'innocence'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['community', 'individualism'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['revenge', 'forgiveness'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['purity', 'contrast'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['management', 'labor'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['diversity', 'unity'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['nature', 'technology'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['creation', 'destruction'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['faith', 'questioning'] },
+  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['hierarchy', 'equality'] },
+];
+
+export const MannerPairDeck: MannersCard[] = [
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['populist', 'elitist'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['calm', 'energetic'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['disaster', 'blessed'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['sacred', 'profane'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['tame', 'feral'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['cheerful', 'grumpy'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['direct', 'subtle'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['rich', 'poor'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['focused', 'opportunistic'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['slow', 'fast'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['hot', 'cold'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['hardworking', 'lazy'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['modern', 'traditional'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['polite', 'rude'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['social', 'solitary'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['nervous', 'confident'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['adventurous', 'cautious'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['cynical', 'gullible'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['quiet', 'loud'] },
+  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['practical', 'imaginative'] },
+];
+
+const getFormatString = (card: Card) => {
+  switch (card.template) {
+    case 'STYLE':
+      return 'in a {} style';
+    case 'THEME':
+      return 'with a theme of {}';
+    case 'CONNECTED_BY':
+      return 'You are connected by {}.';
+    case 'SETTING':
+      return 'Dress for a {} setting.';
+    case 'DRESS_AS':
+      return 'Dress as {}';
+    case 'DRESS_IN':
+      return 'Dress in {}';
+    case 'REPRESENT':
+      return 'You represent {}';
+    case 'MANNER':
+      return 'act in a {} manner';
+  }
+};
 
 const getCardText = (card: Card, index?: number): string => {
   // index: number | NULL ???
