@@ -1,15 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Counter } from './counter';
-import { Decks, printCard } from './decks';
+import { Decks } from './decks';
 import { CardFace } from './card';
+import { draw } from './deck_utils';
 
 ReactDOM.render(
   <>
-    <div>Hello world</div>
-    <Counter name="cats" />
-    <Counter name="ukuleles" />
-    <CardFace card={Decks.ConnectionDeck[0]} />
+    <div>Character Pair Generator</div>
+    <CardFace card={draw(Decks.ConnectionDeck)} />
+    <CardFace card={draw(Decks.CostumeDeck)} />
+    <CardFace card={draw(Decks.AestheticPairDeck)} />
   </>,
   document.getElementById('main'),
 );

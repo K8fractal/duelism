@@ -1,5 +1,3 @@
-import { lazy } from 'react';
-
 type Template = 'MANNER' | 'CONNECTED_BY' | 'STYLE' | 'THEME' | 'SETTING' | 'DRESS_IN' | 'DRESS_AS' | 'REPRESENT';
 type Quant = 'SINGLE' | 'DOUBLE';
 
@@ -184,4 +182,4 @@ export const printCard = (card: Card, index?: number): string => {
   return getFormatString(card).replace('{}', getCardText(card, index));
 };
 
-export const Decks = { AestheticPairDeck, ConnectionDeck, CostumeDeck };
+export const Decks = { AestheticPairDeck, ConnectionDeck, CostumeDeck, IdealPairDeck, MannerPairDeck };
