@@ -147,21 +147,21 @@ export const MannerPairDeck: MannersCard[] = [
 const getFormatString = (card: Card) => {
   switch (card.template) {
     case 'STYLE':
-      return 'in a {} style';
+      return 'in a {} style.';
     case 'THEME':
-      return 'with a theme of {}';
+      return 'with a theme of {}.';
     case 'CONNECTED_BY':
       return 'You are connected by {}.';
     case 'SETTING':
-      return 'Dress for a {} setting.';
+      return 'Dress for a {} setting';
     case 'DRESS_AS':
       return 'Dress as {}';
     case 'DRESS_IN':
       return 'Dress in {}';
     case 'REPRESENT':
-      return 'You represent {}';
+      return 'You represent {}.';
     case 'MANNER':
-      return 'act in a {} manner';
+      return 'Act in a {} manner.';
   }
 };
 
