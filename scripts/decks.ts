@@ -183,3 +183,14 @@ export const printCard = (card: Card, index?: number): string => {
 };
 
 export const Decks = { AestheticPairDeck, ConnectionDeck, CostumeDeck, IdealPairDeck, MannerPairDeck };
+
+//Move this to hand.tsx later
+interface Hand {
+  costume: CostumeCard[];
+  aesthetics: AestheticsCard[];
+  ideals: IdealsCard[];
+  manners: MannersCard[];
+  //world:
+  //power:
+  connection: ConnectionCard[];
+}

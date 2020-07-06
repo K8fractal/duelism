@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, printCard } from './decks';
+import { Card, printCard, getFormatString, getCardText } from './decks';
 
 interface Props {
   card: Card;
