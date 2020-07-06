@@ -1,4 +1,14 @@
-type Template = 'MANNER' | 'CONNECTED_BY' | 'STYLE' | 'THEME' | 'SETTING' | 'DRESS_IN' | 'DRESS_AS' | 'REPRESENT';
+type Template =
+  | 'POWER MEASURE'
+  | 'MANNER'
+  | 'CONNECTED_BY'
+  | 'STYLE'
+  | 'THEME'
+  | 'SETTING'
+  | 'DRESS_IN'
+  | 'DRESS_AS'
+  | 'REPRESENT'
+  | 'WORLD';
 type Quant = 'SINGLE' | 'DOUBLE';
 
 interface BaseCard {
@@ -42,7 +52,21 @@ interface MannersCard extends BaseCard {
   quant: 'DOUBLE';
 }
 
-export type Card = ConnectionCard | AestheticsCard | CostumeCard | IdealsCard | MannersCard;
+interface PowerCard extends BaseCard {
+  text: string;
+  deck: 'POWER';
+  template: 'POWER MEASURE';
+  quant: 'SINGLE';
+}
+
+interface WorldCard extends BaseCard {
+  text: string;
+  deck: 'WORLD';
+  template: 'WORLD';
+  quant: 'SINGLE';
+}
+
+export type Card = ConnectionCard | AestheticsCard | CostumeCard | IdealsCard | MannersCard | PowerCard | WorldCard;
 
 export const AestheticPairDeck: AestheticsCard[] = [
   { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['dark', 'light'] },
@@ -144,7 +168,42 @@ export const MannerPairDeck: MannersCard[] = [
   { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['practical', 'imaginative'] },
 ];
 
-const getFormatString = (card: Card) => {
+export const PowerDeck: PowerCard[] = [
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'crisis response skills' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'self-denial' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'self-sacrifice' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'storytelling' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'popularity' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'agricultural yield' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'fearlessness' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'secrets' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'words' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'imagination' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'followers' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'speed' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'territory' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'money' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'magic' },
+];
+
+export const WorldDeck: WorldCard[] = [
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'old ruins' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'feudalism' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'religion' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'olympic sports' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'megacities' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'TV entertainment' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'theater' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'proper etiquette' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'aliens' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'crime' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'monsters' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'academies' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'politics' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'warring nations' },
+];
+
+export const getFormatString = (card: Card) => {
   switch (card.template) {
     case 'STYLE':
       return 'in a {} style.';
@@ -162,6 +221,10 @@ const getFormatString = (card: Card) => {
       return 'You represent {}.';
     case 'MANNER':
       return 'Act in a {} manner.';
+    case 'POWER MEASURE':
+      return 'where power is measured by {}';
+    case 'WORLD':
+      return 'In a world of {},';
   }
 };
 
@@ -182,7 +245,15 @@ export const printCard = (card: Card, index?: number): string => {
   return getFormatString(card).replace('{}', getCardText(card, index));
 };
 
-export const Decks = { AestheticPairDeck, ConnectionDeck, CostumeDeck, IdealPairDeck, MannerPairDeck };
+export const Decks = {
+  AestheticPairDeck,
+  ConnectionDeck,
+  CostumeDeck,
+  IdealPairDeck,
+  MannerPairDeck,
+  PowerDeck,
+  WorldDeck,
+};
 
 //Move this to hand.tsx later
 interface Hand {
@@ -190,7 +261,7 @@ interface Hand {
   aesthetics: AestheticsCard[];
   ideals: IdealsCard[];
   manners: MannersCard[];
-  //world:
-  //power:
+  world: WorldCard[];
+  power: PowerCard[];
   connection: ConnectionCard[];
 }
