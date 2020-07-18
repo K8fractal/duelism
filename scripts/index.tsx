@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Counter } from './counter';
 import { Decks } from './decks';
 import { CardFace } from './card';
 import { draw } from './deck_utils';

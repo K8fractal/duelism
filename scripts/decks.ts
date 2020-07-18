@@ -17,6 +17,13 @@ interface BaseCard {
   quant: Quant;
 }
 
+interface DoubleCard extends BaseCard {
+  deck: string;
+  template: Template;
+  quant: 'DOUBLE';
+  rotation: 0 | 1;
+}
+
 interface CostumeCard extends BaseCard {
   text: string;
   deck: 'COSTUME';
@@ -31,21 +38,21 @@ interface ConnectionCard extends BaseCard {
   quant: 'SINGLE';
 }
 
-interface AestheticsCard extends BaseCard {
+interface AestheticsCard extends DoubleCard {
   text: [string, string];
   deck: 'AESTHETICS';
   template: 'STYLE' | 'THEME';
   quant: 'DOUBLE';
 }
 
-interface IdealsCard extends BaseCard {
+interface IdealsCard extends DoubleCard {
   text: [string, string];
   deck: 'IDEALS';
   template: 'REPRESENT';
   quant: 'DOUBLE';
 }
 
-interface MannersCard extends BaseCard {
+interface MannersCard extends DoubleCard {
   text: [string, string];
   deck: 'MANNERS';
   template: 'MANNER';
@@ -69,24 +76,24 @@ interface WorldCard extends BaseCard {
 export type Card = ConnectionCard | AestheticsCard | CostumeCard | IdealsCard | MannersCard | PowerCard | WorldCard;
 
 export const AestheticPairDeck: AestheticsCard[] = [
-  { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['dark', 'light'] },
-  { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['clean', 'dirty'] },
-  { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['neat', 'messy'] },
-  { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['round', 'pointy'] },
-  { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['monochromatic', 'colorful'] },
-  { quant: 'DOUBLE', template: 'STYLE', deck: 'AESTHETICS', text: ['intricate', 'plain'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['black', 'white'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['earth', 'air'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['heights', 'depths'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['moon', 'sun'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['summer', 'winter'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['water', 'fire'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['prey', 'predator'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['large', 'small'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['age', 'youth'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['city', 'rural'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['bicycle', 'motorcycle'] },
-  { quant: 'DOUBLE', template: 'THEME', deck: 'AESTHETICS', text: ['reptiles', 'mammals'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['dark', 'light'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['clean', 'dirty'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['neat', 'messy'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['round', 'pointy'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['monochromatic', 'colorful'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['intricate', 'plain'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['black', 'white'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['earth', 'air'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['heights', 'depths'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['moon', 'sun'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['summer', 'winter'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['water', 'fire'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['prey', 'predator'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['large', 'small'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['age', 'youth'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['city', 'rural'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['bicycle', 'motorcycle'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['reptiles', 'mammals'] },
 ];
 
 export const ConnectionDeck: ConnectionCard[] = [
@@ -126,46 +133,46 @@ export const CostumeDeck: CostumeCard[] = [
 ];
 
 export const IdealPairDeck: IdealsCard[] = [
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['good', 'evil'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['order', 'chaos'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['freedom', 'loyalty'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['caution', 'action'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['heritage', 'progress'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['spirit', 'physicality'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['authority', 'rebellion'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['knowledge', 'innocence'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['community', 'individualism'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['revenge', 'forgiveness'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['purity', 'contrast'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['management', 'labor'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['diversity', 'unity'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['nature', 'technology'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['creation', 'destruction'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['faith', 'questioning'] },
-  { quant: 'DOUBLE', template: 'REPRESENT', deck: 'IDEALS', text: ['hierarchy', 'equality'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['good', 'evil'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['order', 'chaos'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['freedom', 'loyalty'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['caution', 'action'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['heritage', 'progress'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['spirit', 'physicality'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['authority', 'rebellion'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['knowledge', 'innocence'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['community', 'individualism'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['revenge', 'forgiveness'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['purity', 'contrast'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['management', 'labor'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['diversity', 'unity'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['nature', 'technology'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['creation', 'destruction'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['faith', 'questioning'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['hierarchy', 'equality'] },
 ];
 
 export const MannerPairDeck: MannersCard[] = [
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['populist', 'elitist'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['calm', 'energetic'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['disaster', 'blessed'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['sacred', 'profane'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['tame', 'feral'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['cheerful', 'grumpy'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['direct', 'subtle'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['rich', 'poor'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['focused', 'opportunistic'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['slow', 'fast'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['hot', 'cold'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['hardworking', 'lazy'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['modern', 'traditional'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['polite', 'rude'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['social', 'solitary'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['nervous', 'confident'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['adventurous', 'cautious'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['cynical', 'gullible'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['quiet', 'loud'] },
-  { quant: 'DOUBLE', template: 'MANNER', deck: 'MANNERS', text: ['practical', 'imaginative'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['populist', 'elitist'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['calm', 'energetic'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['disaster', 'blessed'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['sacred', 'profane'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['tame', 'feral'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['cheerful', 'grumpy'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['direct', 'subtle'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['rich', 'poor'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['focused', 'opportunistic'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['slow', 'fast'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['hot', 'cold'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['hardworking', 'lazy'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['modern', 'traditional'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['polite', 'rude'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['social', 'solitary'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['nervous', 'confident'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['adventurous', 'cautious'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['cynical', 'gullible'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['quiet', 'loud'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['practical', 'imaginative'] },
 ];
 
 export const PowerDeck: PowerCard[] = [
@@ -203,7 +210,7 @@ export const WorldDeck: WorldCard[] = [
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'warring nations' },
 ];
 
-export const getFormatString = (card: Card) => {
+export const getFormatString = (card: Card): string => {
   switch (card.template) {
     case 'STYLE':
       return 'in a {} style.';
@@ -228,16 +235,16 @@ export const getFormatString = (card: Card) => {
   }
 };
 
-const getCardText = (card: Card, index?: number): string => {
+export const getCardText = (card: Card, index?: number): string => {
   // index: number | NULL ???
   switch (card.quant) {
     case 'SINGLE':
       return card.text;
     case 'DOUBLE':
       if (index == undefined) {
-        return `${card.text[0]} or ${card.text[1]}`;
+        return `${card.text[(0 + card.rotation) % 2]} or ${card.text[(1 + card.rotation) % 2]}`;
       }
-      return card.text[index];
+      return card.text[(index + card.rotation) % 2];
   }
 };
 
@@ -255,13 +262,36 @@ export const Decks = {
   WorldDeck,
 };
 
-//Move this to hand.tsx later
-interface Hand {
-  costume: CostumeCard[];
+//
+// * HAND INTERFACE & METHODS * //
+//
+// Hand card: Card and orientation
+export interface HandCard {
+  card: Card;
+  rotation: 0 | 1;
+}
+
+export interface Hand {
+  cards: Card[]; //Use this one
+  /*costume: CostumeCard[];
   aesthetics: AestheticsCard[];
   ideals: IdealsCard[];
   manners: MannersCard[];
   world: WorldCard[];
   power: PowerCard[];
-  connection: ConnectionCard[];
+  connection: ConnectionCard[];*/
 }
+
+export const emptyHand: Hand = {
+  cards: [],
+};
+
+export const addCard = (card: Card, hand: Hand): Hand => {
+  hand.cards.push(card);
+  return hand;
+};
+
+export const removeCard = (card: Card, hand: Hand): Hand => {
+  hand.cards.splice(hand.cards.indexOf(card), 1);
+  return hand;
+};
