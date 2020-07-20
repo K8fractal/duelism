@@ -210,6 +210,10 @@ export const WorldDeck: WorldCard[] = [
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'warring nations' },
 ];
 
+export const rotate = (card: DoubleCard): DoubleCard => {
+  return { ...card, rotation: card.rotation == 1 ? 0 : 1 }; // return rotation:0 if rotation is 1, otherwise 0
+};
+
 export const getFormatString = (card: Card): string => {
   switch (card.template) {
     case 'STYLE':
