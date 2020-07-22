@@ -6,5 +6,6 @@ interface Props {
 }
 
 export const CardFace = ({ card }: Props): JSX.Element => {
+  //* Switch on type for color of border *//
   return <div className="box">{printCard(card)}</div>;
 };

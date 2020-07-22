@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Decks, Card, Hand, printCard, getFormatString, getCardText, emptyHand } from './decks';
+import { Decks, Card, Hand, printCard, getFormatString, getCardText, emptyHand, debugHand, addCard } from './decks';
+import { draw } from './deck_utils';
+import { CardFace } from './card';
 
 /*interface Props {
   hand: Hand;
 }*/
 
-export const CardFace = (/*{ hand }: Props*/): JSX.Element => {
-  const [cards, setCards] = useState(emptyHand);
-
+export const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
+  //  const [cards, setCards] = useState(emptyHand);
+  const [cardsInHand, setCards] = useState(debugHand);
   /*return (
     <>
       <div>
@@ -19,5 +21,16 @@ export const CardFace = (/*{ hand }: Props*/): JSX.Element => {
       </div>
     </>
   );*/
-  return <div className="box">STUB</div>;
+  return (
+    <div>
+      Your Hand: {cardsInHand.cards.length} Cards
+      {cardsInHand.cards.map((c, i) => (
+        <CardFace card={c} key={`card${i}`} />
+      ))}
+      <div>
+        <button onClick={() => setCards(addCard(draw(Decks.WorldDeck), cardsInHand))}>Get New Cards</button>
+        <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
+      </div>
+    </div>
+  );
 };

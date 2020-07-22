@@ -290,10 +290,14 @@ export const emptyHand: Hand = {
   cards: [],
 };
 
-export const addCard = (card: Card, hand: Hand): Hand => {
-  hand.cards.push(card);
-  return hand;
+export const debugHand: Hand = {
+  cards: [Decks.IdealPairDeck[0], Decks.PowerDeck[1]],
 };
+
+export const addCard = (card: Card, hand: Hand): Hand => {
+  const newHand = { cards: [...hand.cards, card] };
+  return newHand;
+}; // something is wrong with this function and I don't know what
 
 export const removeCard = (card: Card, hand: Hand): Hand => {
   hand.cards.splice(hand.cards.indexOf(card), 1);

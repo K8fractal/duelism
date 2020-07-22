@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom';
 import { Decks } from './decks';
 import { CardFace } from './card';
 import { draw } from './deck_utils';
+import { HandDisplay } from './hand';
 
 ReactDOM.render(
   <>
     <div>Character Pair Generator</div>
-    <CardFace card={draw(Decks.ConnectionDeck)} />
-    <CardFace card={draw(Decks.CostumeDeck)} />
-    <CardFace card={draw(Decks.AestheticPairDeck)} />
+    <br></br>
+    <HandDisplay />
   </>,
   document.getElementById('main'),
 );
