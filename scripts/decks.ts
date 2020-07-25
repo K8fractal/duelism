@@ -1,3 +1,5 @@
+import { draw } from './deck_utils';
+
 type Template =
   | 'POWER MEASURE'
   | 'MANNER'
@@ -292,6 +294,20 @@ export const emptyHand: Hand = {
 
 export const debugHand: Hand = {
   cards: [Decks.IdealPairDeck[0], Decks.PowerDeck[1]],
+};
+
+export const randomHand = (): Hand => {
+  return {
+    cards: [
+      draw(WorldDeck),
+      draw(PowerDeck),
+      draw(CostumeDeck),
+      draw(AestheticPairDeck),
+      draw(IdealPairDeck),
+      draw(MannerPairDeck),
+      draw(ConnectionDeck),
+    ],
+  };
 };
 
 export const addCard = (card: Card, hand: Hand): Hand => {

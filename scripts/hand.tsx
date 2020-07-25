@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Decks, emptyHand, debugHand, addCard, removeCard } from './decks';
+import { Decks, emptyHand, debugHand, addCard, removeCard, randomHand } from './decks';
 import { draw } from './deck_utils';
 import CardFace from './card';
 
@@ -9,7 +9,7 @@ import CardFace from './card';
 
 const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
   //  const [cards, setCards] = useState(emptyHand);
-  const [cardsInHand, setCards] = useState(debugHand);
+  const [cardsInHand, setCards] = useState(randomHand());
 
   return (
     <div>
