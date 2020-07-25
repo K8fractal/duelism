@@ -258,6 +258,7 @@ export const printCard = (card: Card, index?: number): string => {
   return getFormatString(card).replace('{}', getCardText(card, index));
 };
 
+// Change to map with Template
 export const Decks = {
   AestheticPairDeck,
   ConnectionDeck,
@@ -318,5 +319,35 @@ export const addCard = (card: Card, hand: Hand): Hand => {
 export const removeCard = (card: Card, hand: Hand): Hand => {
   const location = hand.cards.indexOf(card);
   const newHand = { cards: [...hand.cards.slice(0, location), ...hand.cards.slice(location + 1)] };
+  return newHand;
+};
+
+export const replaceCard = (card: Card, hand: Hand): Hand => {
+  const location = hand.cards.indexOf(card);
+  let deck: Card[] = [];
+  switch (card.deck) {
+    case 'AESTHETICS':
+      deck = AestheticPairDeck;
+      break;
+    case 'CONNECTION':
+      deck = ConnectionDeck;
+      break;
+    case 'COSTUME':
+      deck = CostumeDeck;
+      break;
+    case 'IDEALS':
+      deck = IdealPairDeck;
+      break;
+    case 'MANNERS':
+      deck = MannerPairDeck;
+      break;
+    case 'POWER':
+      deck = PowerDeck;
+      break;
+    case 'WORLD':
+      deck = WorldDeck;
+      break;
+  }
+  const newHand = { cards: [...hand.cards.slice(0, location), draw(deck), ...hand.cards.slice(location + 1)] };
   return newHand;
 };

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Decks, emptyHand, debugHand, addCard, removeCard, randomHand } from './decks';
+import { Decks, emptyHand, debugHand, addCard, removeCard, randomHand, replaceCard } from './decks';
 import { draw } from './deck_utils';
 import CardFace from './card';
 
@@ -17,8 +17,11 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
       {cardsInHand.cards.map((c, i) => (
         <div key={`cardInterface${i}`}>
           <CardFace card={c} key={`card${i}`} />
-          <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
+          {/* <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
             Discard
+          </button> */}
+          <button onClick={() => setCards(replaceCard(c, cardsInHand))} key={`redraw${i}th`}>
+            Replace
           </button>
         </div>
       ))}
