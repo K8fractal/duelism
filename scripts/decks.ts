@@ -300,6 +300,7 @@ export const addCard = (card: Card, hand: Hand): Hand => {
 }; // something is wrong with this function and I don't know what
 
 export const removeCard = (card: Card, hand: Hand): Hand => {
-  hand.cards.splice(hand.cards.indexOf(card), 1);
-  return hand;
+  const location = hand.cards.indexOf(card);
+  const newHand = { cards: [...hand.cards.slice(0, location), ...hand.cards.slice(location + 1)] };
+  return newHand;
 };

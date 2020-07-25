@@ -1,5 +1,16 @@
 import React, { useState } from 'react';
-import { Decks, Card, Hand, printCard, getFormatString, getCardText, emptyHand, debugHand, addCard } from './decks';
+import {
+  Decks,
+  Card,
+  Hand,
+  printCard,
+  getFormatString,
+  getCardText,
+  emptyHand,
+  debugHand,
+  addCard,
+  removeCard,
+} from './decks';
 import { draw } from './deck_utils';
 import { CardFace } from './card';
 
@@ -25,7 +36,12 @@ export const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
     <div>
       Your Hand: {cardsInHand.cards.length} Cards
       {cardsInHand.cards.map((c, i) => (
-        <CardFace card={c} key={`card${i}`} />
+        <div key={`card${i}`}>
+          <CardFace card={c} key={`card${i}`} />
+          <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`card${i}`}>
+            Discard
+          </button>
+        </div>
       ))}
       <div>
         <button onClick={() => setCards(addCard(draw(Decks.WorldDeck), cardsInHand))}>Get New Cards</button>
