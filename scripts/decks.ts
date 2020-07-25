@@ -297,7 +297,7 @@ export const debugHand: Hand = {
 export const addCard = (card: Card, hand: Hand): Hand => {
   const newHand = { cards: [...hand.cards, card] };
   return newHand;
-}; // something is wrong with this function and I don't know what
+};
 
 export const removeCard = (card: Card, hand: Hand): Hand => {
   const location = hand.cards.indexOf(card);

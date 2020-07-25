@@ -36,9 +36,9 @@ export const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
     <div>
       Your Hand: {cardsInHand.cards.length} Cards
       {cardsInHand.cards.map((c, i) => (
-        <div key={`card${i}`}>
+        <div key={`cardInterface${i}`}>
           <CardFace card={c} key={`card${i}`} />
-          <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`card${i}`}>
+          <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
             Discard
           </button>
         </div>
