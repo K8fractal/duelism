@@ -25,10 +25,10 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
           </button>
         </div>
       ))}
-      <div>
+      {/* <div>
         <button onClick={() => setCards(addCard(draw(Decks.WorldDeck), cardsInHand))}>Get New Cards</button>
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
-      </div>
+      </div> */}
     </div>
   );
 };

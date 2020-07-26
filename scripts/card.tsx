@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Card, printCard, getFormatString, getCardText } from './decks';
+import React from 'react';
+import { Card, getFormatString, getCardText } from './decks';
 
 interface Props {
   card: Card;
@@ -30,7 +30,7 @@ const coloredCardText = (card: Card, index?: number): JSX.Element => {
       color = 'Magenta';
       break;
     case 'POWER':
-      color = 'Cyan';
+      color = 'DarkTurquoise';
       break;
     case 'WORLD':
       color = 'Blue';
@@ -41,7 +41,7 @@ const coloredCardText = (card: Card, index?: number): JSX.Element => {
     return (
       <div>
         {formats[0]}
-        <span style={{ color: color }}>{getCardText(card, index)}</span>
+        <span style={{ color: color, fontWeight: 'bold' }}>{getCardText(card, index)}</span>
         {formats[1]}
       </div>
     );
@@ -51,6 +51,7 @@ const coloredCardText = (card: Card, index?: number): JSX.Element => {
       <div>
         {formats[0]}
         <span style={{ color: color }}>{getCardText(card, index)}</span>
+        {}
       </div>
     );
   } else {
