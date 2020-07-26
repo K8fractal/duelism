@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Decks, emptyHand, debugHand, addCard, removeCard, randomHand, replaceCard } from './decks';
+import { Decks, emptyHand, debugHand, addCard, removeCard, randomHand, replaceCard, Card } from './decks';
 import { draw } from './deck_utils';
 import CardFace from './card';
 
@@ -8,14 +8,13 @@ import CardFace from './card';
 }*/
 
 const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
-  //  const [cards, setCards] = useState(emptyHand);
   const [cardsInHand, setCards] = useState(randomHand());
 
   return (
-    <div>
+    <div className="hand">
       Your Hand: {cardsInHand.cards.length} Cards
       {cardsInHand.cards.map((c, i) => (
-        <div key={`cardInterface${i}`}>
+        <div className="cardButtons" key={`cardInterface${i}`}>
           <CardFace card={c} key={`card${i}`} />
           {/* <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
             Discard
@@ -23,12 +22,13 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
           <button onClick={() => setCards(replaceCard(c, cardsInHand))} key={`redraw${i}th`}>
             Replace
           </button>
+          <button>Rotate</button>
         </div>
       ))}
-      {/* <div>
-        <button onClick={() => setCards(addCard(draw(Decks.WorldDeck), cardsInHand))}>Get New Cards</button>
-        <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
-      </div> */}
+      <div>
+        <button onClick={() => setCards(randomHand())}>Get ALL New Cards</button>
+        {/* <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button> */}
+      </div>
     </div>
   );
 };

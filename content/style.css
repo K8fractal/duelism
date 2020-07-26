@@ -1,9 +1,16 @@
 .box {
     border: 1px solid black;
-    display: inline-flex;
     height: 80px;
     width: 150px;
     padding: 5px 5px;
     text-align: center;
     vertical-align: middle;
+}
+
+.cardButtons {
+    border: 1px solid black;
+}
+
+.hand {
+    display: inline-flex;
 }
