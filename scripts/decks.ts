@@ -1,6 +1,3 @@
-import { draw } from './deck_utils';
-import HandDisplay from './hand';
-
 type Template =
   | 'POWER MEASURE'
   | 'MANNER'
@@ -259,7 +256,6 @@ export const printCard = (card: Card, index?: number): string => {
   return getFormatString(card).replace('{}', getCardText(card, index));
 };
 
-// Change to map with Template
 export const Decks = {
   AESTHETICS: AestheticPairDeck,
   CONNECTION: ConnectionDeck,
@@ -268,73 +264,4 @@ export const Decks = {
   MANNERS: MannerPairDeck,
   POWER: PowerDeck,
   WORLD: WorldDeck,
-};
-
-//
-// * HAND INTERFACE & METHODS * //
-//
-// Hand card: Card and orientation
-export interface HandCard {
-  card: Card;
-  rotation: 0 | 1;
-}
-
-export interface Hand {
-  cards: Card[]; //Use this one
-  /*costume: CostumeCard[];
-  aesthetics: AestheticsCard[];
-  ideals: IdealsCard[];
-  manners: MannersCard[];
-  world: WorldCard[];
-  power: PowerCard[];
-  connection: ConnectionCard[];*/
-}
-
-export const emptyHand: Hand = {
-  cards: [],
-};
-
-// export const debugHand: Hand = {
-//   cards: [Decks.IdealPairDeck[0], Decks.PowerDeck[1]],
-// };
-
-export const randomHand = (): Hand => {
-  return {
-    cards: [
-      draw(WorldDeck),
-      draw(PowerDeck),
-      draw(CostumeDeck),
-      draw(AestheticPairDeck),
-      draw(IdealPairDeck),
-      draw(MannerPairDeck),
-      draw(ConnectionDeck),
-    ],
-  };
-};
-
-export const addCard = (card: Card, hand: Hand): Hand => {
-  const newHand = { cards: [...hand.cards, card] };
-  return newHand;
-};
-
-export const removeCard = (card: Card, hand: Hand): Hand => {
-  const location = hand.cards.indexOf(card);
-  const newHand = { cards: [...hand.cards.slice(0, location), ...hand.cards.slice(location + 1)] };
-  return newHand;
-};
-
-export const rotateCard = (card: Card, hand: Hand): Hand => {
-  if (card.quant == 'SINGLE') {
-    return hand;
-  }
-  const location = hand.cards.indexOf(card);
-  const newHand = { cards: [...hand.cards.slice(0, location), rotate(card), ...hand.cards.slice(location + 1)] };
-  return newHand;
-};
-
-export const replaceCard = (card: Card, hand: Hand): Hand => {
-  const location = hand.cards.indexOf(card);
-  const deck: Card[] = Decks[card.deck];
-  const newHand = { cards: [...hand.cards.slice(0, location), draw(deck), ...hand.cards.slice(location + 1)] };
-  return newHand;
 };
