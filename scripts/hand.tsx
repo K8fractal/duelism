@@ -36,6 +36,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
         {/* <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button> */}
       </div>
       <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>
+      <div className="row">Character 2: {printCharacter(cardsInHand, 1)}</div>
     </div>
   );
 };
@@ -69,11 +70,11 @@ export const randomHand = (): Hand => {
     cards: [
       draw(Decks['WORLD']),
       draw(Decks['POWER']),
+      draw(Decks['CONNECTION']),
       draw(Decks['COSTUME']),
       draw(Decks['AESTHETICS']),
       draw(Decks['IDEALS']),
       draw(Decks['MANNERS']),
-      draw(Decks['CONNECTION']),
     ],
   };
 };
@@ -106,9 +107,9 @@ export const replaceCard = (card: Card, hand: Hand): Hand => {
 };
 
 const printCharacter = (hand: Hand, index: 0 | 1): string => {
-  const sentence = 'THIS IS A TEST: ';
+  let sentence = '';
   hand.cards.forEach((c) => {
-    sentence.concat(printCard(c, index));
+    sentence += printCard(c, index);
   });
   return sentence;
 };

@@ -89,7 +89,7 @@ export const AestheticPairDeck: AestheticsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['summer', 'winter'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['water', 'fire'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['prey', 'predator'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['large', 'small'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['large', 'small'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['age', 'youth'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['city', 'rural'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['bicycle', 'motorcycle'] },
@@ -217,25 +217,25 @@ export const rotate = <T extends DoubleCard>(card: T): T => {
 export const getFormatString = (card: Card): string => {
   switch (card.template) {
     case 'STYLE':
-      return 'in a {} style.';
+      return 'in a {} style. ';
     case 'THEME':
-      return 'with a theme of {}.';
+      return 'with a theme of {}. ';
     case 'CONNECTED_BY':
-      return 'You are connected by {}.';
+      return 'two are connected by {}. ';
     case 'SETTING':
-      return 'Dress for a {} setting';
+      return 'Dress for a {} setting ';
     case 'DRESS_AS':
-      return 'Dress as {}';
+      return 'Dress as {} ';
     case 'DRESS_IN':
-      return 'Dress in {}';
+      return 'Dress in {} ';
     case 'REPRESENT':
-      return 'You represent {}.';
+      return 'You represent {} ';
     case 'MANNER':
-      return 'Act in a {} manner.';
+      return 'and act in a {} manner. ';
     case 'POWER MEASURE':
-      return 'where power is measured by {}';
+      return 'where power is measured by {}, ';
     case 'WORLD':
-      return 'In a world of {},';
+      return 'In a world of {}, ';
   }
 };
 
