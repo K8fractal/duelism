@@ -13,4 +13,12 @@
 
 .hand {
     display: inline-flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-items: center; /* Why doesn't this work? */
+    width: 1050px;
 }

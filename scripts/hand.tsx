@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { draw } from './deck_utils';
 import CardFace from './card';
-import { Decks, Card, rotate } from './decks';
+import { Decks, Card, rotate, printCard } from './decks';
 
 /*interface Props {
   hand: Hand;
@@ -13,26 +13,29 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
   return (
     <div className="hand">
       Your Hand: {cardsInHand.cards.length} Cards
-      {cardsInHand.cards.map((c, i) => (
-        <div className="cardButtons" key={`cardInterface${i}`}>
-          <CardFace card={c} key={`card${i}`} />
-          {/* <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
+      <div className="row">
+        {cardsInHand.cards.map((c, i) => (
+          <div className="cardButtons" key={`cardInterface${i}`}>
+            <CardFace card={c} key={`card${i}`} />
+            {/* <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
             Discard
           </button> */}
-          <button onClick={() => setCards(replaceCard(c, cardsInHand))} key={`redraw${i}th`}>
-            Replace
-          </button>
-          {c.quant == 'DOUBLE' && (
-            <button onClick={() => setCards(rotateCard(c, cardsInHand))} key={`rotate${i}th`}>
-              Rotate
+            <button onClick={() => setCards(replaceCard(c, cardsInHand))} key={`redraw${i}th`}>
+              Replace
             </button>
-          )}
-        </div>
-      ))}
-      <div>
+            {c.quant == 'DOUBLE' && (
+              <button onClick={() => setCards(rotateCard(c, cardsInHand))} key={`rotate${i}th`}>
+                Rotate
+              </button>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className="row">
         <button onClick={() => setCards(randomHand())}>Get ALL New Cards</button>
         {/* <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button> */}
       </div>
+      <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>
     </div>
   );
 };
@@ -60,10 +63,6 @@ export interface Hand {
 export const emptyHand: Hand = {
   cards: [],
 };
-
-// export const debugHand: Hand = {
-//   cards: [Decks.IdealPairDeck[0], Decks.PowerDeck[1]],
-// };
 
 export const randomHand = (): Hand => {
   return {
@@ -104,6 +103,14 @@ export const replaceCard = (card: Card, hand: Hand): Hand => {
   const deck: Card[] = Decks[card.deck];
   const newHand = { cards: [...hand.cards.slice(0, location), draw(deck), ...hand.cards.slice(location + 1)] };
   return newHand;
+};
+
+const printCharacter = (hand: Hand, index: 0 | 1): string => {
+  const sentence = 'THIS IS A TEST: ';
+  hand.cards.forEach((c) => {
+    sentence.concat(printCard(c, index));
+  });
+  return sentence;
 };
 
 export default HandDisplay;
