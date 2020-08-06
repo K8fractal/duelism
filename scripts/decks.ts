@@ -4,6 +4,7 @@ type Template =
   | 'CONNECTED_BY'
   | 'STYLE'
   | 'THEME'
+  | 'THEME_OF'
   | 'SETTING'
   | 'DRESS_IN'
   | 'DRESS_AS'
@@ -41,7 +42,7 @@ interface ConnectionCard extends BaseCard {
 interface AestheticsCard extends DoubleCard {
   text: [string, string];
   deck: 'AESTHETICS';
-  template: 'STYLE' | 'THEME';
+  template: 'STYLE' | 'THEME' | 'THEME_OF';
   quant: 'DOUBLE';
 }
 
@@ -84,16 +85,16 @@ export const AestheticPairDeck: AestheticsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['intricate', 'plain'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['black', 'white'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['earth', 'air'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['heights', 'depths'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['heights', 'depths'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['moon', 'sun'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['summer', 'winter'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['summer', 'winter'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['water', 'fire'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['prey', 'predator'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['large', 'small'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['prey', 'predator'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['large', 'small'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['age', 'youth'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['city', 'rural'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['bicycle', 'motorcycle'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['reptiles', 'mammals'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['reptiles', 'mammals'] },
 ];
 
 export const ConnectionDeck: ConnectionCard[] = [
@@ -219,9 +220,11 @@ export const getFormatString = (card: Card): string => {
     case 'STYLE':
       return 'in a {} style. ';
     case 'THEME':
+      return 'with a {} theme. ';
+    case 'THEME_OF':
       return 'with a theme of {}. ';
     case 'CONNECTED_BY':
-      return 'two are connected by {}. ';
+      return 'two opposites are connected by {}. ';
     case 'SETTING':
       return 'Dress for a {} setting ';
     case 'DRESS_AS':

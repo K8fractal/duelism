@@ -44,11 +44,6 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
 //
 // * HAND INTERFACE & METHODS * //
 //
-// Hand card: Card and orientation
-export interface HandCard {
-  card: Card;
-  rotation: 0 | 1;
-}
 
 export interface Hand {
   cards: Card[]; //Use this one
