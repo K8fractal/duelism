@@ -12,14 +12,16 @@ type Template =
   | 'WORLD';
 type Quant = 'SINGLE' | 'DOUBLE';
 
+export type Deck = 'WORLD' | 'POWER' | 'CONNECTION' | 'COSTUME' | 'AESTHETICS' | 'IDEALS' | 'MANNERS';
+
 interface BaseCard {
-  deck: string;
+  deck: Deck;
   template: Template;
   quant: Quant;
 }
 
 interface DoubleCard extends BaseCard {
-  deck: string;
+  deck: Deck;
   template: Template;
   quant: 'DOUBLE';
   rotation: 0 | 1;

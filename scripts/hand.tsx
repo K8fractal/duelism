@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { draw } from './deck_utils';
 import CardFace from './card';
-import { Decks, Card, rotate, printCard } from './decks';
+import { Deck, Decks, Card, rotate, printCard } from './decks';
 
 /*interface Props {
   hand: Hand;
@@ -17,9 +17,9 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
         {cardsInHand.cards.map((c, i) => (
           <div className="cardButtons" key={`cardInterface${i}`}>
             <CardFace card={c} key={`card${i}`} />
-            {/* <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
-            Discard
-          </button> */}
+            <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
+              Discard
+            </button>
             <button onClick={() => setCards(replaceCard(c, cardsInHand))} key={`redraw${i}th`}>
               Replace
             </button>
@@ -33,6 +33,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
       </div>
       <div className="row">
         <button onClick={() => setCards(randomHand())}>Get ALL New Cards</button>
+        <button onClick={() => setCards(addFromDeck(cardsInHand, 'IDEALS'))}>Draw a new Ideal</button>
         {/* <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button> */}
       </div>
       <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>
@@ -74,9 +75,41 @@ export const randomHand = (): Hand => {
   };
 };
 
+const deckOrder: Deck[] = ['WORLD', 'POWER', 'CONNECTION', 'COSTUME', 'AESTHETICS', 'IDEALS', 'MANNERS'];
+
+function findLastIndex<T>(array: T[], critera: (item: T) => boolean): number {
+  for (let i = array.length - 1; i >= 0; i--) {
+    if (critera(array[i])) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+// This function is needs testing!!!
+const findInsertIndex = (hand: Hand, deck: Deck): number => {
+  const lastCardIndex: number = findLastIndex(hand.cards, (element) => element.deck == deck);
+  if (lastCardIndex == -1) {
+    const deckLocation: number = deckOrder.indexOf(deck);
+    // No card of the appropriate type
+    if (deckLocation == 0 || deckLocation == -1) {
+      return 0; // Give a valid answer, namely the beginning of the array.
+    } else {
+      return findInsertIndex(hand, deckOrder[deckLocation - 1]);
+    }
+  }
+  // InsertIndex is the index of the firstCard with the same type, if it exists
+  return lastCardIndex + 1;
+};
+
 export const addCard = (card: Card, hand: Hand): Hand => {
-  const newHand = { cards: [...hand.cards, card] };
+  const location: number = findInsertIndex(hand, card.deck);
+  const newHand = { cards: [...hand.cards.slice(0, location), card, ...hand.cards.slice(location)] };
   return newHand;
+};
+
+export const addFromDeck = (hand: Hand, deck: Deck): Hand => {
+  return addCard(draw(Decks[deck]), hand);
 };
 
 export const removeCard = (card: Card, hand: Hand): Hand => {
