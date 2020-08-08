@@ -36,12 +36,15 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
         ))}
       </div>
       <div className="row">
-        <button onClick={() => setCards(randomHand())}>Get ALL New Cards</button>
-        <button className="deckButton IDEALS" onClick={() => setCards(addFromDeck(cardsInHand, 'IDEALS'))}>
-          Draw a new Ideal
-        </button>
+        {deckOrder.map((deck) => (
+          <button key={deck} className={`deckButton ${deck}`} onClick={() => setCards(addFromDeck(cardsInHand, deck))}>
+            Draw a new {deck.toLowerCase()} card
+          </button>
+        ))}
+
         {/* <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button> */}
       </div>
+      <button onClick={() => setCards(randomHand())}>Get ALL New Cards</button>
       <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>
       <div className="row">Character 2: {printCharacter(cardsInHand, 1)}</div>
     </div>
@@ -114,7 +117,11 @@ export const addCard = (card: Card, hand: Hand): Hand => {
 };
 
 export const addFromDeck = (hand: Hand, deck: Deck): Hand => {
-  return addCard(draw(Decks[deck]), hand);
+  let newCard: Card = draw(Decks[deck]);
+  while (hand.cards.includes(newCard)) {
+    newCard = draw(Decks[deck]);
+  } // This will infinite loop if you try to draw more cards of a type than exist in the deck.
+  return addCard(newCard, hand);
 };
 
 export const removeCard = (card: Card, hand: Hand): Hand => {
@@ -135,7 +142,11 @@ export const rotateCard = (card: Card, hand: Hand): Hand => {
 export const replaceCard = (card: Card, hand: Hand): Hand => {
   const location = hand.cards.indexOf(card);
   const deck: Card[] = Decks[card.deck];
-  const newHand = { cards: [...hand.cards.slice(0, location), draw(deck), ...hand.cards.slice(location + 1)] };
+  let replacement: Card = draw(deck);
+  while (hand.cards.includes(replacement)) {
+    replacement = draw(deck);
+  } // This will infinite loop if you try to draw more cards of a type than exist in the deck.
+  const newHand = { cards: [...hand.cards.slice(0, location), replacement, ...hand.cards.slice(location + 1)] };
   return newHand;
 };
 

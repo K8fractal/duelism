@@ -26,11 +26,10 @@
 .deckButton {
     font-weight: bold;
     font-family: serif;
-    background: white;
 }
 
 .AESTHETICS {
-    color: Goldenrod;
+    color: DarkGoldenrod;
 }
 .CONNECTION {
     color: Green;
@@ -42,7 +41,7 @@
     color: Red;
 }
 .MANNERS {
-    color: Magenta;
+    color: rgb(146, 9, 146);
 }
 .POWER {
     color: rgb(2, 127, 129);
