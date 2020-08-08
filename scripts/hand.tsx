@@ -86,7 +86,6 @@ function findLastIndex<T>(array: T[], critera: (item: T) => boolean): number {
   return -1;
 }
 
-// This function is needs testing!!!
 const findInsertIndex = (hand: Hand, deck: Deck): number => {
   const lastCardIndex: number = findLastIndex(hand.cards, (element) => element.deck == deck);
   if (lastCardIndex == -1) {
@@ -98,7 +97,7 @@ const findInsertIndex = (hand: Hand, deck: Deck): number => {
       return findInsertIndex(hand, deckOrder[deckLocation - 1]);
     }
   }
-  // InsertIndex is the index of the firstCard with the same type, if it exists
+  // InsertIndex is after the last Card with the same type/deck, if it exists
   return lastCardIndex + 1;
 };
 
@@ -141,5 +140,14 @@ const printCharacter = (hand: Hand, index: 0 | 1): string => {
   });
   return sentence;
 };
+
+// const printCharacterByDeck = (hand: Hand, index: 0 | 1): string => {
+//   let sentence = '';
+//   let i = 0;
+//   deckOrder.forEach((d) => {
+
+//   });
+//   return sentence;
+// };
 
 export default HandDisplay;
