@@ -20,7 +20,11 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
             <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
               Discard
             </button>
-            <button onClick={() => setCards(replaceCard(c, cardsInHand))} key={`redraw${i}th`}>
+            <button
+              className={`deckButton ${c.deck}`}
+              onClick={() => setCards(replaceCard(c, cardsInHand))}
+              key={`redraw${i}th`}
+            >
               Replace
             </button>
             {c.quant == 'DOUBLE' && (
@@ -33,7 +37,9 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
       </div>
       <div className="row">
         <button onClick={() => setCards(randomHand())}>Get ALL New Cards</button>
-        <button onClick={() => setCards(addFromDeck(cardsInHand, 'IDEALS'))}>Draw a new Ideal</button>
+        <button className="deckButton IDEALS" onClick={() => setCards(addFromDeck(cardsInHand, 'IDEALS'))}>
+          Draw a new Ideal
+        </button>
         {/* <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button> */}
       </div>
       <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>

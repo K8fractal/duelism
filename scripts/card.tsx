@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, getFormatString, getCardText, deckColor } from './decks';
+import { Card, getFormatString, getCardText } from './decks';
 
 interface Props {
   card: Card;
@@ -12,36 +12,14 @@ const CardFace = ({ card }: Props): JSX.Element => {
 export default CardFace;
 
 const coloredCardText = (card: Card, index?: number): JSX.Element => {
-  // let color = 'Black';
-  // switch (card.deck) {
-  //   case 'AESTHETICS':
-  //     color = 'Goldenrod';
-  //     break;
-  //   case 'CONNECTION':
-  //     color = 'Green';
-  //     break;
-  //   case 'COSTUME':
-  //     color = 'Maroon';
-  //     break;
-  //   case 'IDEALS':
-  //     color = 'Red';
-  //     break;
-  //   case 'MANNERS':
-  //     color = 'Magenta';
-  //     break;
-  //   case 'POWER':
-  //     color = 'DarkTurquoise';
-  //     break;
-  //   case 'WORLD':
-  //     color = 'Blue';
-  //     break;
-  // }
   const formats: string[] = getFormatString(card).split('{}');
   if (formats.length == 2) {
     return (
       <div>
         {formats[0]}
-        <span style={{ color: deckColor(card.deck), fontWeight: 'bold' }}>{getCardText(card, index)}</span>
+        <span style={{ fontWeight: 'bold' }} className={card.deck}>
+          {getCardText(card, index)}
+        </span>
         {formats[1]}
       </div>
     );
@@ -50,14 +28,18 @@ const coloredCardText = (card: Card, index?: number): JSX.Element => {
     return (
       <div>
         {formats[0]}
-        <span style={{ color: deckColor(card.deck) }}>{getCardText(card, index)}</span>
+        <span style={{ fontWeight: 'bold' }} className={card.deck}>
+          {getCardText(card, index)}
+        </span>
         {}
       </div>
     );
   } else {
     return (
       <div>
-        <span style={{ color: deckColor(card.deck) }}>{getCardText(card, index)}</span>
+        <span style={{ fontWeight: 'bold' }} className={card.deck}>
+          {getCardText(card, index)}
+        </span>
       </div>
     );
   }

@@ -244,26 +244,6 @@ export const getFormatString = (card: Card): string => {
   }
 };
 
-export const deckColor = (deck: Deck): string => {
-  switch (deck) {
-    case 'AESTHETICS':
-      return 'Goldenrod';
-    case 'CONNECTION':
-      return 'Green';
-    case 'COSTUME':
-      return 'Maroon';
-    case 'IDEALS':
-      return 'Red';
-    case 'MANNERS':
-      return 'Magenta';
-    case 'POWER':
-      return 'DarkTurquoise';
-    case 'WORLD':
-      return 'Blue';
-  }
-  return 'Black';
-};
-
 export const getCardText = (card: Card, index?: number): string => {
   // index: number | NULL ???
   switch (card.quant) {

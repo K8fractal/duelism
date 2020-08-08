@@ -22,3 +22,32 @@
     justify-items: center; /* Why doesn't this work? */
     overflow: wrap;
 }
+
+.deckButton {
+    font-weight: bold;
+    font-family: serif;
+    background: white;
+}
+
+.AESTHETICS {
+    color: Goldenrod;
+}
+.CONNECTION {
+    color: Green;
+}
+.COSTUME {
+    color: Maroon;
+}
+.IDEALS {
+    color: Red;
+}
+.MANNERS {
+    color: Magenta;
+}
+.POWER {
+    color: rgb(2, 127, 129);
+}
+.WORLD {
+    color: Blue;
+}
+  
