@@ -4,7 +4,7 @@ import HandDisplay from './hand';
 
 ReactDOM.render(
   <>
-    <div>Duelism: a enemies to friends character pair generator</div>
+    <h2>Duelism: a enemies to friends character pair generator</h2>
     <br></br>
     <HandDisplay />
   </>,

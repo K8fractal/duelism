@@ -8,11 +8,15 @@ import { Deck, Decks, Card, rotate, printCard } from './decks';
 }*/
 
 const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
-  const [cardsInHand, setCards] = useState(randomHand());
+  const [cardsInHand, setCards] = useState(emptyHand);
 
   return (
     <div className="hand">
       Your Hand: {cardsInHand.cards.length} Cards
+      <div className="row">
+        <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
+        <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
+      </div>
       <div className="row">
         {cardsInHand.cards.map((c, i) => (
           <div className="cardButtons" key={`cardInterface${i}`}>
@@ -41,10 +45,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
             Draw a new {deck.toLowerCase()} card
           </button>
         ))}
-
-        {/* <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button> */}
       </div>
-      <button onClick={() => setCards(randomHand())}>Get ALL New Cards</button>
       <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>
       <div className="row">Character 2: {printCharacter(cardsInHand, 1)}</div>
     </div>
@@ -56,14 +57,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
 //
 
 export interface Hand {
-  cards: Card[]; //Use this one
-  /*costume: CostumeCard[];
-  aesthetics: AestheticsCard[];
-  ideals: IdealsCard[];
-  manners: MannersCard[];
-  world: WorldCard[];
-  power: PowerCard[];
-  connection: ConnectionCard[];*/
+  cards: Card[];
 }
 
 export const emptyHand: Hand = {

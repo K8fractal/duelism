@@ -6,7 +6,7 @@ interface Props {
 }
 
 const CardFace = ({ card }: Props): JSX.Element => {
-  return <div className="box">{coloredCardText(card)}</div>;
+  return <div className="card">{coloredCardText(card)}</div>;
 };
 
 export default CardFace;
