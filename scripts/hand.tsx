@@ -29,7 +29,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
             </button>
             {c.quant == 'DOUBLE' && (
               <button onClick={() => setCards(rotateCard(c, cardsInHand))} key={`rotate${i}th`}>
-                Rotate
+                Flip
               </button>
             )}
           </div>
