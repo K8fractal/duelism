@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { draw } from './deck_utils';
+import { findLastIndex, draw } from './deck_utils';
 import CardFace from './card';
 import { Deck, Decks, Card, rotate, printCard } from './decks';
 
@@ -12,7 +12,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
 
   return (
     <div className="hand">
-      Your Hand: {cardsInHand.cards.length} Cards
+      Your Hand: {cardsInHand.cards.length} Cards of types {countDecks(cardsInHand)}
       <div className="row">
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
         <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
@@ -80,15 +80,6 @@ export const randomHand = (): Hand => {
 
 const deckOrder: Deck[] = ['WORLD', 'POWER', 'CONNECTION', 'COSTUME', 'AESTHETICS', 'IDEALS', 'MANNERS'];
 
-function findLastIndex<T>(array: T[], critera: (item: T) => boolean): number {
-  for (let i = array.length - 1; i >= 0; i--) {
-    if (critera(array[i])) {
-      return i;
-    }
-  }
-  return -1;
-}
-
 const findInsertIndex = (hand: Hand, deck: Deck): number => {
   const lastCardIndex: number = findLastIndex(hand.cards, (element) => element.deck == deck);
   if (lastCardIndex == -1) {
@@ -111,9 +102,10 @@ export const addCard = (card: Card, hand: Hand): Hand => {
 };
 
 export const addFromDeck = (hand: Hand, deck: Deck): Hand => {
-  let newCard: Card = draw(Decks[deck]);
+  const drawFrom = Decks[deck];
+  let newCard: Card = draw(drawFrom);
   while (hand.cards.includes(newCard)) {
-    newCard = draw(Decks[deck]);
+    newCard = draw(drawFrom);
   } // This will infinite loop if you try to draw more cards of a type than exist in the deck.
   return addCard(newCard, hand);
 };
@@ -150,6 +142,14 @@ const printCharacter = (hand: Hand, index: 0 | 1): string => {
     sentence += printCard(c, index);
   });
   return sentence;
+};
+
+const countDecks = (hand: Hand): number[] => {
+  const counts: number[] = [0, 0, 0, 0, 0, 0, 0];
+  hand.cards.forEach((c) => {
+    counts[deckOrder.indexOf(c.deck)]++;
+  });
+  return counts;
 };
 
 // const printCharacterByDeck = (hand: Hand, index: 0 | 1): string => {
