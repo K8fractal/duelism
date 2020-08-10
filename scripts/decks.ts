@@ -217,8 +217,8 @@ export const rotate = <T extends DoubleCard>(card: T): T => {
   return { ...card, rotation: card.rotation == 1 ? 0 : 1 }; // return rotation:0 if rotation is 1, otherwise 0
 };
 
-export const getFormatString = (card: Card): string => {
-  switch (card.template) {
+const formatStringByTemplate = (template: Template): string => {
+  switch (template) {
     case 'STYLE':
       return 'in a {} style. ';
     case 'THEME':
@@ -244,6 +244,34 @@ export const getFormatString = (card: Card): string => {
   }
 };
 
+export const getFormatString = (card: Card): string => {
+  return formatStringByTemplate(card.template);
+  // switch (card.template) {
+  //   case 'STYLE':
+  //     return 'in a {} style. ';
+  //   case 'THEME':
+  //     return 'with a {} theme. ';
+  //   case 'THEME_OF':
+  //     return 'with a theme of {}. ';
+  //   case 'CONNECTED_BY':
+  //     return 'two opposites are connected by {}. ';
+  //   case 'SETTING':
+  //     return 'Dress for a {} setting ';
+  //   case 'DRESS_AS':
+  //     return 'Dress as {} ';
+  //   case 'DRESS_IN':
+  //     return 'Dress in {} ';
+  //   case 'REPRESENT':
+  //     return 'You represent {} ';
+  //   case 'MANNER':
+  //     return 'and act in a {} manner. ';
+  //   case 'POWER MEASURE':
+  //     return 'where power is measured by {}, ';
+  //   case 'WORLD':
+  //     return 'In a world of {}, ';
+  // }
+};
+
 export const getCardText = (card: Card, index?: number): string => {
   // index: number | NULL ???
   switch (card.quant) {
@@ -259,6 +287,10 @@ export const getCardText = (card: Card, index?: number): string => {
 
 export const printCard = (card: Card, index?: number): string => {
   return getFormatString(card).replace('{}', getCardText(card, index));
+};
+
+export const printCombo = (comboText: string, format: Template): string => {
+  return formatStringByTemplate(format).replace('{}', comboText);
 };
 
 export const Decks = {

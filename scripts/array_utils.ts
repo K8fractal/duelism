@@ -1,13 +1,6 @@
-import { Card } from './decks';
-
-export const draw = (deck: Card[]): Card => {
-  return deck[Math.floor(Math.random() * deck.length)];
-};
-
-// Templated version gives type errors. I don't understand!
-/*export function draw<T>(array: T[]): T {
+export function draw<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)];
-}*/
+}
 
 export function findLastIndex<T>(array: T[], critera: (item: T) => boolean): number {
   for (let i = array.length - 1; i >= 0; i--) {

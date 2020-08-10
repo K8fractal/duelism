@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { findLastIndex, draw } from './deck_utils';
+import { findLastIndex, draw } from './array_utils';
 import CardFace from './card';
-import { Deck, Decks, Card, rotate, printCard } from './decks';
+import { Deck, Decks, Card, rotate, printCard, getCardText, printCombo } from './decks';
 
 /*interface Props {
   hand: Hand;
@@ -102,7 +102,7 @@ export const addCard = (card: Card, hand: Hand): Hand => {
 };
 
 export const addFromDeck = (hand: Hand, deck: Deck): Hand => {
-  const drawFrom = Decks[deck];
+  const drawFrom: Card[] = Decks[deck];
   let newCard: Card = draw(drawFrom);
   while (hand.cards.includes(newCard)) {
     newCard = draw(drawFrom);
@@ -136,13 +136,13 @@ export const replaceCard = (card: Card, hand: Hand): Hand => {
   return newHand;
 };
 
-const printCharacter = (hand: Hand, index: 0 | 1): string => {
+/*const printCharacter = (hand: Hand, index: 0 | 1): string => {
   let sentence = '';
   hand.cards.forEach((c) => {
     sentence += printCard(c, index);
   });
   return sentence;
-};
+};*/
 
 const countDecks = (hand: Hand): number[] => {
   const counts: number[] = [0, 0, 0, 0, 0, 0, 0];
@@ -152,13 +152,31 @@ const countDecks = (hand: Hand): number[] => {
   return counts;
 };
 
-// const printCharacterByDeck = (hand: Hand, index: 0 | 1): string => {
-//   let sentence = '';
-//   let i = 0;
-//   deckOrder.forEach((d) => {
+const printCharacter = (hand: Hand, index: 0 | 1): string => {
+  let sentence = '';
+  let cardindex = 0;
+  let combo = '';
+  const counts: number[] = countDecks(hand);
+  for (let i = 0; i < deckOrder.length; i++) {
+    if (counts[i] == 1) {
+      sentence += printCard(hand.cards[cardindex], index);
+      cardindex += 1;
+    }
+    if (counts[i] > 1) {
+      // Sentence addition parsing here
+      const deckCards = hand.cards.slice(cardindex, cardindex + counts[i]);
+      combo = getCardText(deckCards[0], index);
+      for (let j = 1; j < deckCards.length; j++) {
+        combo += ' and ';
+        combo += getCardText(deckCards[j], index);
+      }
+      sentence += printCombo(combo, deckCards[0].template);
 
-//   });
-//   return sentence;
-// };
+      cardindex += counts[i];
+    }
+    // if 0, do nothing
+  }
+  return sentence;
+};
 
 export default HandDisplay;
