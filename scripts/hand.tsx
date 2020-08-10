@@ -80,6 +80,13 @@ export const randomHand = (): Hand => {
 
 const deckOrder: Deck[] = ['WORLD', 'POWER', 'CONNECTION', 'COSTUME', 'AESTHETICS', 'IDEALS', 'MANNERS'];
 
+type HandByDeck = SingleDeckHand[]; // Size is 7
+
+interface SingleDeckHand {
+  deck: Deck;
+  cards: Card[];
+}
+
 const findInsertIndex = (hand: Hand, deck: Deck): number => {
   const lastCardIndex: number = findLastIndex(hand.cards, (element) => element.deck == deck);
   if (lastCardIndex == -1) {
@@ -152,6 +159,17 @@ const countDecks = (hand: Hand): number[] => {
   return counts;
 };
 
+const convertHand = (hand: Hand): HandByDeck => {
+  const result = deckOrder.map((deck) => ({
+    deck,
+    cards: [],
+  }));
+  hand.cards.forEach((c) => {
+    result[deckOrder.indexOf(c.deck)].cards.push(c);
+  });
+  return result;
+};
+
 const printCharacter = (hand: Hand, index: 0 | 1): string => {
   let sentence = '';
   let cardindex = 0;
@@ -163,14 +181,15 @@ const printCharacter = (hand: Hand, index: 0 | 1): string => {
       cardindex += 1;
     }
     if (counts[i] > 1) {
-      // Sentence addition parsing here
+      // TODO: check template for joiner and combo templates
+      // possibly move joining code to decks.
       const deckCards = hand.cards.slice(cardindex, cardindex + counts[i]);
       combo = getCardText(deckCards[0], index);
       for (let j = 1; j < deckCards.length; j++) {
-        combo += ' and ';
+        combo += ' and '; // Always uses ' and ' as joiner
         combo += getCardText(deckCards[j], index);
       }
-      sentence += printCombo(combo, deckCards[0].template);
+      sentence += printCombo(combo, deckCards[0].template); // assumes const template
 
       cardindex += counts[i];
     }
