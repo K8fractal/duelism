@@ -1,7 +1,17 @@
 import React, { useState } from 'react';
 import { findLastIndex, draw } from './array_utils';
 import CardFace from './card';
-import { Deck, Decks, Card, rotate, printCard, getCardText, printCombo } from './decks';
+import {
+  Deck,
+  Decks,
+  Card,
+  rotate,
+  printCard,
+  getCardText,
+  printCombo,
+  printCostumeCombo,
+  printStyleCombo,
+} from './decks';
 
 /*interface Props {
   hand: Hand;
@@ -159,16 +169,26 @@ const countDecks = (hand: Hand): number[] => {
   return counts;
 };
 
-const convertHand = (hand: Hand): HandByDeck => {
-  const result = deckOrder.map((deck) => ({
-    deck,
-    cards: [],
-  }));
-  hand.cards.forEach((c) => {
-    result[deckOrder.indexOf(c.deck)].cards.push(c);
-  });
-  return result;
-};
+// const convertHand = (hand: Hand): HandByDeck => {
+//   const result = deckOrder.map((deck) => ({ // The cards aren't constant!
+//     deck,
+//     cards: [],
+//   }));
+//   hand.cards.forEach((c) => {
+//     result[deckOrder.indexOf(c.deck)].cards.push(c);
+//   });
+//   return result;
+// };
+
+// const printCharacterTemp = (hand: HandByDeck, index: 0 | 1): string => {
+//   let sentence = '';
+//   hand.map(printSingleDeckHand,)
+// }
+
+// const printSingleDeckHand = ({deck: Deck, cards: Card[]}): string => {
+//   if (deck == 'W')
+//   return ''
+// }
 
 const printCharacter = (hand: Hand, index: 0 | 1): string => {
   let sentence = '';
@@ -184,12 +204,18 @@ const printCharacter = (hand: Hand, index: 0 | 1): string => {
       // TODO: check template for joiner and combo templates
       // possibly move joining code to decks.
       const deckCards = hand.cards.slice(cardindex, cardindex + counts[i]);
-      combo = getCardText(deckCards[0], index);
-      for (let j = 1; j < deckCards.length; j++) {
-        combo += ' and '; // Always uses ' and ' as joiner
-        combo += getCardText(deckCards[j], index);
+      if (deckOrder[i] == 'COSTUME') {
+        sentence += printCostumeCombo(deckCards);
+      } else if (deckOrder[i] == 'AESTHETICS') {
+        sentence += printStyleCombo(deckCards, index);
+      } else {
+        combo = getCardText(deckCards[0], index);
+        for (let j = 1; j < deckCards.length; j++) {
+          combo += ' and '; // Always uses ' and ' as joiner
+          combo += getCardText(deckCards[j], index);
+        }
+        sentence += printCombo(combo, deckCards[0].template); // assumes const template
       }
-      sentence += printCombo(combo, deckCards[0].template); // assumes const template
 
       cardindex += counts[i];
     }

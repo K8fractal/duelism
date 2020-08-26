@@ -93,7 +93,7 @@ export const AestheticPairDeck: AestheticsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['water', 'fire'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['prey', 'predator'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['large', 'small'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['age', 'youth'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['age', 'youth'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['city', 'rural'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['bicycle', 'motorcycle'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['reptiles', 'mammals'] },
@@ -291,6 +291,81 @@ export const printCard = (card: Card, index?: number): string => {
 
 export const printCombo = (comboText: string, format: Template): string => {
   return formatStringByTemplate(format).replace('{}', comboText);
+};
+
+export const printCostumeCombo = (cards: Card[]): string => {
+  const settings = cards.filter((card) => card.template == 'SETTING');
+  const dress_as = cards.filter((card) => card.template == 'DRESS_AS');
+  const dress_in = cards.filter((card) => card.template == 'DRESS_IN');
+  let result = 'Dress ';
+  if (settings.length > 0) {
+    result += 'for a ';
+    result += settings[0].text;
+    for (let i = 1; i < settings.length; i++) {
+      result += ', ';
+      result += settings[i].text;
+    }
+    result += ' setting ';
+  }
+  if (dress_as.length > 0) {
+    result += 'as ';
+    result += dress_as[0].text;
+    for (let i = 1; i < dress_as.length; i++) {
+      result += ' and ';
+      result += dress_as[i].text;
+    }
+    result += ' ';
+  }
+  if (dress_in.length > 0) {
+    result += 'in ';
+    result += dress_in[0].text;
+    for (let i = 1; i < dress_in.length; i++) {
+      result += ' and ';
+      result += dress_in[i].text;
+    }
+    result += ' ';
+  }
+  return result;
+  //return 'Dress for a {} setting as {} in {} ';
+};
+
+export const printStyleCombo = (cards: Card[], index: number): string => {
+  let result = '';
+  // 'in a {} style with a {} theme of {}. '
+  const styles = cards.filter((card) => card.template == 'STYLE');
+  const themes = cards.filter((card) => card.template == 'THEME');
+  const themes_of = cards.filter((card) => card.template == 'THEME_OF');
+  if (styles.length > 0) {
+    result += 'in a ';
+    result += getCardText(styles[0], index);
+    for (let i = 1; i < styles.length; i++) {
+      result += ' ';
+      result += getCardText(styles[i], index);
+    }
+    result += ' style ';
+  }
+  if (themes.length > 0) {
+    result += 'with a ';
+    result += getCardText(themes[0], index);
+    for (let i = 1; i < themes.length; i++) {
+      result += ' and ';
+      result += getCardText(themes[i], index);
+    }
+    result += ' theme';
+  }
+  if (themes_of.length > 0) {
+    if (themes.length == 0) {
+      result += 'with a theme';
+    }
+    result += ' of ';
+    result += getCardText(themes_of[0], index);
+    for (let i = 1; i < themes_of.length; i++) {
+      result += ' and ';
+      result += getCardText(themes_of[i], index);
+    }
+  }
+  result += '.';
+  return result;
 };
 
 export const Decks = {
