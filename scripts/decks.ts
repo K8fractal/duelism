@@ -364,7 +364,7 @@ export const printStyleCombo = (cards: Card[], index: number): string => {
       result += getCardText(themes_of[i], index);
     }
   }
-  result += '.';
+  result += '. ';
   return result;
 };
 

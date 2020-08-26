@@ -17,12 +17,14 @@ import {
   hand: Hand;
 }*/
 
+// Fix flexbox to allow card wrapping!
+// Allow move card back and forward within category
 const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
   const [cardsInHand, setCards] = useState(emptyHand);
 
   return (
     <div className="hand">
-      Your Hand: {cardsInHand.cards.length} Cards of types {countDecks(cardsInHand)}
+      Your Hand: {cardsInHand.cards.length} Cards {handStatus(cardsInHand)}
       <div className="row">
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
         <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
@@ -56,6 +58,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
           </button>
         ))}
       </div>
+      {/* ALLOW character name textbox */}
       <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>
       <div className="row">Character 2: {printCharacter(cardsInHand, 1)}</div>
     </div>
@@ -167,6 +170,16 @@ const countDecks = (hand: Hand): number[] => {
     counts[deckOrder.indexOf(c.deck)]++;
   });
   return counts;
+};
+
+const handStatus = (hand: Hand): string => {
+  const counts = countDecks(hand);
+  const n = counts.indexOf(0);
+  if (n == -1) {
+    return 'Complete';
+  } else {
+    return 'missing ' + deckOrder[n].toLowerCase();
+  }
 };
 
 // const convertHand = (hand: Hand): HandByDeck => {
