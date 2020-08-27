@@ -32,7 +32,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
         <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
       </div>
-      <div className="row">
+      <div className="cards">
         {cardsInHand.cards.map((c, i) => (
           <div className="cardButtons" key={`cardInterface${i}`}>
             <CardFace card={c} key={`card${i}`} />
@@ -51,10 +51,15 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
                 Flip
               </button>
             )}
+            {i > 0 && c.deck == cardsInHand.cards[i - 1].deck && (
+              <button onClick={() => setCards(moveBack(i, cardsInHand))} key={`moveBack${i}th`}>
+                Move Back
+              </button>
+            )}
           </div>
         ))}
       </div>
-      <div className="row">
+      <div className="cards">
         {deckOrder.map((deck) => (
           <button key={deck} className={`deckButton ${deck}`} onClick={() => setCards(addFromDeck(cardsInHand, deck))}>
             Draw a new {deck.toLowerCase()} card
@@ -147,6 +152,22 @@ export const rotateCard = (card: Card, hand: Hand): Hand => {
   }
   const location = hand.cards.indexOf(card);
   const newHand = { cards: [...hand.cards.slice(0, location), rotate(card), ...hand.cards.slice(location + 1)] };
+  return newHand;
+};
+
+const moveBack = (index: number, hand: Hand): Hand => {
+  if (index >= hand.cards.length || index < 1) {
+    // check bounds
+    return hand;
+  }
+  const newHand = {
+    cards: [
+      ...hand.cards.slice(0, index - 1),
+      hand.cards[index],
+      hand.cards[index - 1],
+      ...hand.cards.slice(index + 1),
+    ],
+  };
   return newHand;
 };
 
