@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { findLastIndex, draw } from './array_utils';
 import CardFace from './card';
+import TextField from './textfield';
 import {
   Deck,
   Decks,
@@ -21,6 +22,8 @@ import {
 // Allow move card back and forward within category
 const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
   const [cardsInHand, setCards] = useState(emptyHand);
+  const [name1, setName1] = useState('Character 1 Name');
+  const [name2, setName2] = useState('Character 2 Name');
 
   return (
     <div className="hand">
@@ -59,8 +62,10 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
         ))}
       </div>
       {/* ALLOW character name textbox */}
-      <div className="row">Character 1: {printCharacter(cardsInHand, 0)}</div>
-      <div className="row">Character 2: {printCharacter(cardsInHand, 1)}</div>
+      <TextField value={name1} setValue={setName1} />
+      <TextField value={name2} setValue={setName2} />
+      <div className="row">{printCharacter(cardsInHand, 0, name1)}</div>
+      <div className="row">{printCharacter(cardsInHand, 1, name2)}</div>
     </div>
   );
 };
@@ -203,8 +208,8 @@ const handStatus = (hand: Hand): string => {
 //   return ''
 // }
 
-const printCharacter = (hand: Hand, index: 0 | 1): string => {
-  let sentence = '';
+const printCharacter = (hand: Hand, index: 0 | 1, name: string): string => {
+  let sentence = name + ': ';
   let cardindex = 0;
   let combo = '';
   const counts: number[] = countDecks(hand);
