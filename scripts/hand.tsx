@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { findLastIndex, draw } from './array_utils';
 import CardFace from './card';
 import TextField from './textfield';
@@ -14,16 +14,12 @@ import {
   printStyleCombo,
 } from './decks';
 
-/*interface Props {
-  hand: Hand;
-}*/
-
-// Fix flexbox to allow card wrapping!
-// Allow move card back and forward within category
-const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
+const HandDisplay = (): JSX.Element => {
   const [cardsInHand, setCards] = useState(emptyHand);
   const [name1, setName1] = useState('Character 1');
   const [name2, setName2] = useState('Character 2');
+  const characterPair = useRef(null);
+  // const [copySuccess, setCopySuccess] = useState('');
 
   return (
     <div className="hand">
@@ -32,6 +28,7 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
         <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
       </div>
+      <p></p>
       <div className="cards">
         {deckOrder.map((deck) => (
           <button key={deck} className={`deckButton ${deck}`} onClick={() => setCards(addFromDeck(cardsInHand, deck))}>
@@ -39,41 +36,65 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
           </button>
         ))}
       </div>
-      <div className="cards">
-        {cardsInHand.cards.map((c, i) => (
-          <div className="cardWithButtons" key={`cardInterface${i}`}>
-            <CardFace card={c} key={`card${i}`} />
-            <div className="cardButtons">
-              {c.quant == 'DOUBLE' && (
-                <button onClick={() => setCards(rotateCard(c, cardsInHand))} key={`rotate${i}th`}>
-                  Flip
+      <p>
+        <div className="cards">
+          {cardsInHand.cards.map((c, i) => (
+            <div className="cardWithButtons" key={`cardInterface${i}`}>
+              <CardFace card={c} key={`card${i}`} />
+              <div className="cardButtons">
+                {c.quant == 'DOUBLE' && (
+                  <button onClick={() => setCards(rotateCard(c, cardsInHand))} key={`rotate${i}th`}>
+                    Flip
+                  </button>
+                )}
+                {i > 0 && c.deck == cardsInHand.cards[i - 1].deck && (
+                  <button onClick={() => setCards(moveBack(i, cardsInHand))} key={`moveBack${i}th`}>
+                    Move Back
+                  </button>
+                )}
+              </div>
+              <div className="cardButtons">
+                <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
+                  Discard
                 </button>
-              )}
-              {i > 0 && c.deck == cardsInHand.cards[i - 1].deck && (
-                <button onClick={() => setCards(moveBack(i, cardsInHand))} key={`moveBack${i}th`}>
-                  Move Back
+                <button
+                  className={`deckButton ${c.deck}`}
+                  onClick={() => setCards(replaceCard(c, cardsInHand))}
+                  key={`redraw${i}th`}
+                >
+                  Replace
                 </button>
-              )}
+              </div>
             </div>
-            <div className="cardButtons">
-              <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
-                Discard
-              </button>
-              <button
-                className={`deckButton ${c.deck}`}
-                onClick={() => setCards(replaceCard(c, cardsInHand))}
-                key={`redraw${i}th`}
-              >
-                Replace
-              </button>
-            </div>
-          </div>
-        ))}
-      </div>
-      Name: <TextField value={name1} setValue={setName1} />
-      Name: <TextField value={name2} setValue={setName2} />
+          ))}
+        </div>
+      </p>
+      <TextField value={name1} setValue={setName1} label="Name" />
+      <TextField value={name2} setValue={setName2} label="Name" />
+      <textarea
+        ref={characterPair}
+        value={`${printCharacter(cardsInHand, 0, name1)} ${printCharacter(cardsInHand, 1, name2)}`}
+      />
       <div className="row">{printCharacter(cardsInHand, 0, name1)}</div>
       <div className="row">{printCharacter(cardsInHand, 1, name2)}</div>
+      {
+        /* Logical shortcut for only displaying the 
+          button if the copy command exists */
+        document.queryCommandSupported('copy') && (
+          <div>
+            <button
+              onClick={() => {
+                characterPair.current.select();
+                document.execCommand('copy');
+                // setCopySuccess('Copied!');
+              }}
+            >
+              Copy
+            </button>
+            {/* {copySuccess} */}
+          </div>
+        )
+      }
     </div>
   );
 };

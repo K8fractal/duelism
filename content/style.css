@@ -70,4 +70,10 @@ h2 {
 .WORLD {
     color: rgb(3, 3, 212);
 }
-  
+
+textarea{ 
+    font-family: inherit; 
+    font-size: inherit; 
+    left: -1000px;
+    position: fixed;
+}
