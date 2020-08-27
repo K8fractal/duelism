@@ -22,8 +22,8 @@ import {
 // Allow move card back and forward within category
 const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
   const [cardsInHand, setCards] = useState(emptyHand);
-  const [name1, setName1] = useState('Character 1 Name');
-  const [name2, setName2] = useState('Character 2 Name');
+  const [name1, setName1] = useState('Character 1');
+  const [name2, setName2] = useState('Character 2');
 
   return (
     <div className="hand">
@@ -31,6 +31,13 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
       <div className="row">
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
         <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
+      </div>
+      <div className="cards">
+        {deckOrder.map((deck) => (
+          <button key={deck} className={`deckButton ${deck}`} onClick={() => setCards(addFromDeck(cardsInHand, deck))}>
+            Draw a new {deck.toLowerCase()} card
+          </button>
+        ))}
       </div>
       <div className="cards">
         {cardsInHand.cards.map((c, i) => (
@@ -63,16 +70,8 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
           </div>
         ))}
       </div>
-      <div className="cards">
-        {deckOrder.map((deck) => (
-          <button key={deck} className={`deckButton ${deck}`} onClick={() => setCards(addFromDeck(cardsInHand, deck))}>
-            Draw a new {deck.toLowerCase()} card
-          </button>
-        ))}
-      </div>
-      {/* ALLOW character name textbox */}
-      <TextField value={name1} setValue={setName1} />
-      <TextField value={name2} setValue={setName2} />
+      Name: <TextField value={name1} setValue={setName1} />
+      Name: <TextField value={name2} setValue={setName2} />
       <div className="row">{printCharacter(cardsInHand, 0, name1)}</div>
       <div className="row">{printCharacter(cardsInHand, 1, name2)}</div>
     </div>

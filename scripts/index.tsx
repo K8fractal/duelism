@@ -35,11 +35,11 @@ ReactDOM.render(
           manners
         </span>
         ). You can flip these cards to change which character has which attribute. You can also replace any cards you
-        don't like.
+        don't like. You can rearrange the order of cards of the same type, using the 'Move Back' buttons.
       </p>
       <p>
-        Once you are happy with your hand, copy the description of your characters from below the buttons to share or
-        save! Enjoy!
+        Once you are happy with your hand, name your characters with the textboxes below the buttons. Then, copy the
+        description of your characters from the bottom to share or save! Enjoy!
       </p>
       <h3>The game</h3>
     </div>
