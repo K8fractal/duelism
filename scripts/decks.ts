@@ -82,13 +82,18 @@ export const AestheticPairDeck: AestheticsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['dark', 'light'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['clean', 'dirty'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['neat', 'messy'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['well-worn', 'fresh'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['smooth', 'rough'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['round', 'pointy'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['monochromatic', 'colorful'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['intricate', 'plain'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['simple', 'fancy'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['expensive', 'economical'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['black', 'white'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['earth', 'air'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['heights', 'depths'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['moon', 'sun'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['outdoor', 'indoor'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['summer', 'winter'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['water', 'fire'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME_OF', deck: 'AESTHETICS', text: ['prey', 'predator'] },
@@ -106,6 +111,11 @@ export const ConnectionDeck: ConnectionCard[] = [
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a shared performance' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'biological symbiosis' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a shared love' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'family' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a prophecy' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a mutual attraction' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a shared secret' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'an unusual history' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'an accidental life saving' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a hope for the future' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'an old mentorship' },
@@ -113,12 +123,15 @@ export const ConnectionDeck: ConnectionCard[] = [
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: "respect for each other's skills" },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'doubt of your own factions' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'shared vital resources' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a common need' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a former relationship' },
 ];
 
 export const CostumeDeck: CostumeCard[] = [
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'modern formal' },
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'modern informal' },
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'medieval fantasy' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'high fantasy' },
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'renaissance' },
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'space opera' },
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'steampunk' },
@@ -126,13 +139,19 @@ export const CostumeDeck: CostumeCard[] = [
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'post-apcalyptic' },
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'high fashion' },
   { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'underwater' },
+  { quant: 'SINGLE', template: 'SETTING', deck: 'COSTUME', text: 'swashbuckling' },
   { quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'uniforms' },
+  { quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'robes' },
   { quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'floral designs' },
+  { quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'tie-dyes' },
+  { quant: 'SINGLE', template: 'DRESS_IN', deck: 'COSTUME', text: 'stripes' },
   { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'anthropomorphic animals' },
   { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'household objects' },
   { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'pilots' },
   { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'superheroes' },
   { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'sailors' },
+  { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'mythical creatures' },
+  { quant: 'SINGLE', template: 'DRESS_AS', deck: 'COSTUME', text: 'machines' },
 ];
 
 export const IdealPairDeck: IdealsCard[] = [
@@ -154,6 +173,8 @@ export const IdealPairDeck: IdealsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['faith', 'questioning'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['hierarchy', 'equality'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['style', 'substance'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['luck', 'skill'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['privacy', 'transparency'] },
 ];
 
 export const MannerPairDeck: MannersCard[] = [
@@ -176,6 +197,8 @@ export const MannerPairDeck: MannersCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['adventurous', 'cautious'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['cynical', 'gullible'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['quiet', 'loud'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['flexible', 'rigid'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['arrogant', 'humble'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['practical', 'imaginative'] },
 ];
 
@@ -195,6 +218,9 @@ export const PowerDeck: PowerCard[] = [
   { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'territory' },
   { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'money' },
   { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'magic' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'clever plans' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'scientific advancement' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'influence with leaders' },
 ];
 
 export const WorldDeck: WorldCard[] = [
@@ -202,6 +228,7 @@ export const WorldDeck: WorldCard[] = [
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'feudalism' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'religion' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'olympic sports' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'team sports' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'megacities' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'TV entertainment' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'theater' },
@@ -211,7 +238,11 @@ export const WorldDeck: WorldCard[] = [
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'monsters' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'academies' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'politics' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'many islands' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'miracles' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'warring nations' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'immortality' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'airships' },
 ];
 
 export const rotate = <T extends DoubleCard>(card: T): T => {
