@@ -153,6 +153,7 @@ export const IdealPairDeck: IdealsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['creation', 'destruction'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['faith', 'questioning'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['hierarchy', 'equality'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['style', 'substance'] },
 ];
 
 export const MannerPairDeck: MannersCard[] = [
@@ -167,7 +168,7 @@ export const MannerPairDeck: MannersCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['focused', 'opportunistic'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['slow', 'fast'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['hot', 'cold'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['hardworking', 'lazy'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['hard-working', 'lazy'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['modern', 'traditional'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['polite', 'rude'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['social', 'solitary'] },
@@ -246,30 +247,6 @@ const formatStringByTemplate = (template: Template): string => {
 
 export const getFormatString = (card: Card): string => {
   return formatStringByTemplate(card.template);
-  // switch (card.template) {
-  //   case 'STYLE':
-  //     return 'in a {} style. ';
-  //   case 'THEME':
-  //     return 'with a {} theme. ';
-  //   case 'THEME_OF':
-  //     return 'with a theme of {}. ';
-  //   case 'CONNECTED_BY':
-  //     return 'two opposites are connected by {}. ';
-  //   case 'SETTING':
-  //     return 'Dress for a {} setting ';
-  //   case 'DRESS_AS':
-  //     return 'Dress as {} ';
-  //   case 'DRESS_IN':
-  //     return 'Dress in {} ';
-  //   case 'REPRESENT':
-  //     return 'You represent {} ';
-  //   case 'MANNER':
-  //     return 'and act in a {} manner. ';
-  //   case 'POWER MEASURE':
-  //     return 'where power is measured by {}, ';
-  //   case 'WORLD':
-  //     return 'In a world of {}, ';
-  // }
 };
 
 export const getCardText = (card: Card, index?: number): string => {

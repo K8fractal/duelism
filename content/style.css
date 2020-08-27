@@ -1,17 +1,31 @@
 .card {
-    height: 80px;
-    width: 150px;
     padding: 5px 5px;
     text-align: center;
     vertical-align: middle;
+    display: flex;
+    flex-grow: 1;
 }
 
 h2 {
     text-align: center;
 }
 
-.cardButtons {
+.cardWithButtons {
+    height: 120px;
+    width: 150px;
     border: 1px solid black;
+    display: flex;
+    align-self: center;
+    flex-direction: column;
+}
+
+.cardButtons {
+    display: flex;
+    align-self: center;
+} 
+
+.bottomButtons {
+    display: flex;
 }
 
 .hand {
@@ -24,10 +38,10 @@ h2 {
     flex-wrap: wrap;
 }
 
+
 .row {
     display: flex;
     flex-direction: row;
-    justify-items: center; /* Why doesn't this work? */
     overflow: wrap;
 }
 

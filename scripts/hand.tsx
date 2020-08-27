@@ -34,28 +34,32 @@ const HandDisplay = (/*{ hand }: Props*/): JSX.Element => {
       </div>
       <div className="cards">
         {cardsInHand.cards.map((c, i) => (
-          <div className="cardButtons" key={`cardInterface${i}`}>
+          <div className="cardWithButtons" key={`cardInterface${i}`}>
             <CardFace card={c} key={`card${i}`} />
-            <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
-              Discard
-            </button>
-            <button
-              className={`deckButton ${c.deck}`}
-              onClick={() => setCards(replaceCard(c, cardsInHand))}
-              key={`redraw${i}th`}
-            >
-              Replace
-            </button>
-            {c.quant == 'DOUBLE' && (
-              <button onClick={() => setCards(rotateCard(c, cardsInHand))} key={`rotate${i}th`}>
-                Flip
+            <div className="cardButtons">
+              {c.quant == 'DOUBLE' && (
+                <button onClick={() => setCards(rotateCard(c, cardsInHand))} key={`rotate${i}th`}>
+                  Flip
+                </button>
+              )}
+              {i > 0 && c.deck == cardsInHand.cards[i - 1].deck && (
+                <button onClick={() => setCards(moveBack(i, cardsInHand))} key={`moveBack${i}th`}>
+                  Move Back
+                </button>
+              )}
+            </div>
+            <div className="cardButtons">
+              <button onClick={() => setCards(removeCard(c, cardsInHand))} key={`discard${i}th`}>
+                Discard
               </button>
-            )}
-            {i > 0 && c.deck == cardsInHand.cards[i - 1].deck && (
-              <button onClick={() => setCards(moveBack(i, cardsInHand))} key={`moveBack${i}th`}>
-                Move Back
+              <button
+                className={`deckButton ${c.deck}`}
+                onClick={() => setCards(replaceCard(c, cardsInHand))}
+                key={`redraw${i}th`}
+              >
+                Replace
               </button>
-            )}
+            </div>
           </div>
         ))}
       </div>
