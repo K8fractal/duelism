@@ -158,9 +158,12 @@ export const addCard = (card: Card, hand: Hand): Hand => {
 export const addFromDeck = (hand: Hand, deck: Deck): Hand => {
   const drawFrom: Card[] = Decks[deck];
   let newCard: Card = draw(drawFrom);
-  while (hand.cards.includes(newCard)) {
+  let tries = 0; // Prevent infinite loops.
+  while (hand.cards.includes(newCard) && tries < 100) {
     newCard = draw(drawFrom);
-  } // This will infinite loop if you try to draw more cards of a type than exist in the deck.
+    tries++;
+  }
+  //console.log(tries);
   return addCard(newCard, hand);
 };
 
@@ -199,9 +202,12 @@ export const replaceCard = (card: Card, hand: Hand): Hand => {
   const location = hand.cards.indexOf(card);
   const deck: Card[] = Decks[card.deck];
   let replacement: Card = draw(deck);
-  while (hand.cards.includes(replacement)) {
+  let tries = 0; ///Prevent infinite loops
+  while (hand.cards.includes(replacement) && tries < 100) {
     replacement = draw(deck);
-  } // This will infinite loop if you try to draw more cards of a type than exist in the deck.
+    tries++;
+  }
+  //console.log(tries);
   const newHand = { cards: [...hand.cards.slice(0, location), replacement, ...hand.cards.slice(location + 1)] };
   return newHand;
 };
