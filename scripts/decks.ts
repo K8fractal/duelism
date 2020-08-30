@@ -350,10 +350,10 @@ export const printStyleCombo = (cards: Card[], index: number): string => {
       result += ' ';
       result += getCardText(styles[i], index);
     }
-    result += ' style ';
+    result += ' style';
   }
   if (themes.length > 0) {
-    result += 'with a ';
+    result += ' with a ';
     result += getCardText(themes[0], index);
     for (let i = 1; i < themes.length; i++) {
       result += ' and ';
@@ -363,7 +363,7 @@ export const printStyleCombo = (cards: Card[], index: number): string => {
   }
   if (themes_of.length > 0) {
     if (themes.length == 0) {
-      result += 'with a theme';
+      result += ' with a theme';
     }
     result += ' of ';
     result += getCardText(themes_of[0], index);

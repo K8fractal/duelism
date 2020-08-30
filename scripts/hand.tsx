@@ -263,6 +263,7 @@ const printCharacter = (hand: Hand, index: 0 | 1, name: string): string => {
   let sentence = name + ': ';
   let cardindex = 0;
   let combo = '';
+  let joiner = '';
   const counts: number[] = countDecks(hand);
   for (let i = 0; i < deckOrder.length; i++) {
     if (counts[i] == 1) {
@@ -278,9 +279,14 @@ const printCharacter = (hand: Hand, index: 0 | 1, name: string): string => {
       } else if (deckOrder[i] == 'AESTHETICS') {
         sentence += printStyleCombo(deckCards, index);
       } else {
+        if ((deckOrder[i] = 'MANNERS')) {
+          joiner = ' ';
+        } else {
+          joiner = ' and ';
+        }
         combo = getCardText(deckCards[0], index);
         for (let j = 1; j < deckCards.length; j++) {
-          combo += ' and '; // Always uses ' and ' as joiner
+          combo += joiner; // ' and ' or space
           combo += getCardText(deckCards[j], index);
         }
         sentence += printCombo(combo, deckCards[0].template); // assumes const template
