@@ -15,7 +15,7 @@ import {
 } from './decks';
 
 const HandDisplay = (): JSX.Element => {
-  const [cardsInHand, setCards] = useState(emptyHand);
+  const [cardsInHand, setCards] = useState(randomHand());
   const [name1, setName1] = useState('Character 1');
   const [name2, setName2] = useState('Character 2');
   const characterPair = useRef(null);
@@ -23,7 +23,7 @@ const HandDisplay = (): JSX.Element => {
 
   return (
     <div className="hand">
-      Your Hand: {cardsInHand.cards.length} Cards {handStatus(cardsInHand)}
+      Your Hand: {cardsInHand.cards.length} Cards, {handStatus(cardsInHand)}
       <div className="row">
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
         <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
