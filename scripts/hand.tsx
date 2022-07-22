@@ -279,7 +279,7 @@ const printCharacter = (hand: Hand, index: 0 | 1, name: string): string => {
       } else if (deckOrder[i] == 'AESTHETICS') {
         sentence += printStyleCombo(deckCards, index);
       } else {
-        if ((deckOrder[i] = 'MANNERS')) {
+        if (deckOrder[i] == 'MANNERS') {
           joiner = ' ';
         } else {
           joiner = ' and ';
