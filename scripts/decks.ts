@@ -1,3 +1,5 @@
+/* Contains data and formatting for cards */
+
 type Template =
   | 'POWER MEASURE'
   | 'MANNER'
