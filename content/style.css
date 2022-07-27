@@ -4,6 +4,13 @@ body {
     font-family: 'Open Sans', Geneva, Verdana, sans-serif;
 }
 
+@media only screen and (min-width: 600px) {
+    body {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
 
 button {
     font-size: inherit;
