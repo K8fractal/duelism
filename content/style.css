@@ -1,6 +1,6 @@
 body {
     font-size: large;
-    background-color: white;
+    background-color: rgb(255, 247, 213);
     font-family: 'Open Sans', Geneva, Verdana, sans-serif;
 }
 
@@ -15,7 +15,7 @@ body {
 button {
     font-size: inherit;
     margin: 5px 5px;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .card {
@@ -29,6 +29,10 @@ button {
 h2 {
     text-align: center;
 }
+h3 {
+    text-align: left;
+    background-color: lightgray;
+}
 
 .cardWithButtons {
     height: 180px;
@@ -39,7 +43,7 @@ h2 {
     align-self: center;
     align-items: center;
     flex-direction: column;
-    background-color: whitesmoke;
+    background-color: white;
 }
 
 .cardButtons {
@@ -81,7 +85,7 @@ h2 {
     color: Maroon;
 }
 .IDEALS {
-    color: Red;
+    color: rgb(249, 45, 45);
 }
 .MANNERS {
     color: rgb(146, 9, 146);
