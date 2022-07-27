@@ -123,7 +123,7 @@ export const ConnectionDeck: ConnectionCard[] = [
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'an old mentorship' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: "respect for each other's ethics" },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: "respect for each other's skills" },
-  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'doubt of your own factions' },
+  { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'doubt of their own factions' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'shared vital resources' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a common need' },
   { quant: 'SINGLE', template: 'CONNECTED_BY', deck: 'CONNECTION', text: 'a former relationship' },

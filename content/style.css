@@ -2,10 +2,10 @@
 body {
     font-size: large;
     background-color: white;
+    font-family: 'Open Sans', Geneva, Verdana, sans-serif;
 }
 button {
     font-size: inherit;
-    font-family: serif;
     margin: 5px 5px;
     background-color: whitesmoke;
 }
@@ -61,7 +61,6 @@ h2 {
 
 .deckButton {
     font-weight: bold;
-    font-family: serif;
 }
 
 .AESTHETICS {
@@ -91,4 +90,8 @@ textarea{
     font-size: inherit; 
     left: -1000px;
     position: fixed;
+}
+
+.characterDisplay {
+    margin-top: 0%;
 }

@@ -25,14 +25,14 @@ const HandDisplay = (): JSX.Element => {
     <div className="hand">
       Your Hand: {cardsInHand.cards.length} Cards, {handStatus(cardsInHand)}
       <div className="row">
+        <button onClick={() => setCards(randomHand())}>Get a New Random Hand</button>
         <button onClick={() => setCards(emptyHand)}>Discard Entire Hand</button>
-        <button onClick={() => setCards(randomHand())}>Get a Random Hand</button>
       </div>
       <p></p>
       <div className="cards">
         {deckOrder.map((deck) => (
-          <button key={deck} className={`deckButton ${deck}`} onClick={() => setCards(addFromDeck(cardsInHand, deck))}>
-            Draw a new {deck.toLowerCase()} card
+          <button key={deck} onClick={() => setCards(addFromDeck(cardsInHand, deck))}>
+            Draw a new <span className={`deckButton ${deck}`}>{deck.toLowerCase()}</span> card
           </button>
         ))}
       </div>
@@ -69,14 +69,17 @@ const HandDisplay = (): JSX.Element => {
           ))}
         </div>
       </p>
-      <TextField value={name1} setValue={setName1} label="Name" />
-      <TextField value={name2} setValue={setName2} label="Name" />
+      <h3>Results</h3>
+      
       <textarea
         ref={characterPair}
         value={`${printCharacter(cardsInHand, 0, name1)} ${printCharacter(cardsInHand, 1, name2)}`}
       />
-      <div className="row">{printCharacter(cardsInHand, 0, name1)}</div>
-      <div className="row">{printCharacter(cardsInHand, 1, name2)}</div>
+      <TextField value={name1} setValue={setName1} label="Name" />
+      <p className="characterDisplay" id="characterDisplay1">{printCharacter(cardsInHand, 0, name1)}</p>
+      
+      <TextField value={name2} setValue={setName2} label="Name" />
+      <p className="characterDisplay" id="characterDisplay2">{printCharacter(cardsInHand, 1, name2)}</p>
       {
         /* Logical shortcut for only displaying the 
           button if the copy command exists */

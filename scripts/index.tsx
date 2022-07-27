@@ -16,10 +16,7 @@ ReactDOM.render(
         <span style={{ fontWeight: 'bold' }} className="POWER">
           power
         </span>
-        , etc.). You have a random hand with one of each card type to start. Draw more and discard those you don't like. You can rearrange the order of cards of the same type, using the Move Back buttons.
-      </p>
-      <p>
-        Some cards are different for each of the characters (
+        , etc.). You have a random hand with one of each card type to start. Draw more and replace those you don't like. You can rearrange the order of cards of the same type, using the Move Back buttons.         Some cards are different for each of the characters (
         <span style={{ fontWeight: 'bold' }} className="AESTHETICS">
           aesthetics
         </span>
@@ -31,8 +28,7 @@ ReactDOM.render(
         <span style={{ fontWeight: 'bold' }} className="MANNERS">
           manners
         </span>
-        ). You can flip these cards to change which character has which attribute. You can also replace any cards you
-        don't like.
+        ). You can flip these cards to change which character has which attribute. 
       </p>
       <p>
         Once you are happy with your hand, name your characters with the textboxes below the buttons. Then, copy the
