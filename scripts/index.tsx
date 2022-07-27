@@ -6,7 +6,6 @@ ReactDOM.render(
   <>
     <div id="Intro">
       <h2>Duelism: a enemies to friends character pair generator</h2>
-      <br></br>
       <h3>How to play</h3>
       <p>
         Build a hand with one or two cards of each type (
@@ -17,9 +16,7 @@ ReactDOM.render(
         <span style={{ fontWeight: 'bold' }} className="POWER">
           power
         </span>
-        , etc.). For quick play, simply click "Get a Random Hand." For the full experience, draw 3 cards of the first
-        two types, then discard any that you don't like or don't think fit. Repeat with next type, or two types, until
-        you have a full hand.
+        , etc.). You have a random hand with one of each card type to start. Draw more and discard those you don't like. You can rearrange the order of cards of the same type, using the Move Back buttons.
       </p>
       <p>
         Some cards are different for each of the characters (
@@ -35,7 +32,7 @@ ReactDOM.render(
           manners
         </span>
         ). You can flip these cards to change which character has which attribute. You can also replace any cards you
-        don't like. You can rearrange the order of cards of the same type, using the Move Back buttons.
+        don't like.
       </p>
       <p>
         Once you are happy with your hand, name your characters with the textboxes below the buttons. Then, copy the
