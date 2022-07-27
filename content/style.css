@@ -1,9 +1,10 @@
-
 body {
     font-size: large;
     background-color: white;
     font-family: 'Open Sans', Geneva, Verdana, sans-serif;
 }
+
+
 button {
     font-size: inherit;
     margin: 5px 5px;
