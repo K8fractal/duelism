@@ -37,6 +37,9 @@ ReactDOM.render(
       <h3>The game</h3>
     </div>
     <HandDisplay />
+    <h3>About</h3>
+    <p>Duelism is also a larp (live action role-playing game) in development.</p>
+    <p>This was my first React and TypeScript project. You can see the source code on <a href="https://github.com/K8fractal/duelism">github</a>.</p>
   </>,
   document.getElementById('main'),
 );
