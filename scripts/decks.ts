@@ -88,7 +88,6 @@ export const AestheticPairDeck: AestheticsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['smooth', 'rough'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['round', 'pointy'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['monochromatic', 'colorful'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['intricate', 'plain'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['simple', 'fancy'] },
   { quant: 'DOUBLE', rotation: 0, template: 'STYLE', deck: 'AESTHETICS', text: ['expensive', 'economical'] },
   { quant: 'DOUBLE', rotation: 0, template: 'THEME', deck: 'AESTHETICS', text: ['black', 'white'] },
@@ -159,24 +158,33 @@ export const CostumeDeck: CostumeCard[] = [
 export const IdealPairDeck: IdealsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['good', 'evil'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['order', 'chaos'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['freedom', 'loyalty'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['freedom', 'safety'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['exploration', 'predictablity'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['universal compassion', 'loyalty'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['caution', 'action'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['heritage', 'progress'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['spirit', 'physicality'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['authority', 'rebellion'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['knowledge', 'innocence'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['community', 'individualism'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['revenge', 'forgiveness'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['justice', 'forgiveness'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['purity', 'contrast'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['management', 'labor'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['diversity', 'unity'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['nature', 'technology'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['creation', 'destruction'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['faith', 'questioning'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['hierarchy', 'equality'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['hierarchy', 'consensus'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['style', 'substance'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['luck', 'skill'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['privacy', 'transparency'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['honor', 'utility'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['pride', 'humility'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['results', 'process'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['honesty', 'gentleness'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['equality', 'caregiving'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['beauty', 'practicality'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['intricacy', 'elegance'] },
 ];
 
 export const MannerPairDeck: MannersCard[] = [
@@ -202,6 +210,7 @@ export const MannerPairDeck: MannersCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['flexible', 'rigid'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['arrogant', 'humble'] },
   { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['practical', 'imaginative'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'MANNER', deck: 'MANNERS', text: ['playful', 'strategic'] },
 ];
 
 export const PowerDeck: PowerCard[] = [
@@ -223,6 +232,18 @@ export const PowerDeck: PowerCard[] = [
   { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'clever plans' },
   { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'scientific advancement' },
   { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'influence with leaders' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'strength' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'art' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'dexterity' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'raw materials' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'water' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'information' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'stock price' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'reputation' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'variety of resources' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'responsiveness' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'memory' },
+  { quant: 'SINGLE', template: 'POWER MEASURE', deck: 'POWER', text: 'a specific rare resource' },
 ];
 
 export const WorldDeck: WorldCard[] = [
@@ -245,6 +266,13 @@ export const WorldDeck: WorldCard[] = [
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'warring nations' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'immortality' },
   { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'airships' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'megacorps' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'the internet' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'pop stars' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'business' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'imminent doom' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'recent discovery' },
+  { quant: 'SINGLE', template: 'WORLD', deck: 'WORLD', text: 'space ships' },
 ];
 
 export const rotate = <T extends DoubleCard>(card: T): T => {
