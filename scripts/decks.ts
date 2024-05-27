@@ -160,7 +160,7 @@ export const IdealPairDeck: IdealsCard[] = [
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['order', 'chaos'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['freedom', 'safety'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['exploration', 'predictablity'] },
-  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['universal compassion', 'loyalty'] },
+  { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['loyalty', 'universal compassion'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['caution', 'action'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['heritage', 'progress'] },
   { quant: 'DOUBLE', rotation: 0, template: 'REPRESENT', deck: 'IDEALS', text: ['spirit', 'physicality'] },
